@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FarmOtor's Transport</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -32,58 +28,35 @@
     header::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0,0,0,0.5);
       z-index: 1;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-      opacity: 0;
-      transform: translateY(30px);
+      position: relative; z-index: 2;
+      opacity: 0; transform: translateY(30px);
       animation: fadeInUp 1s ease forwards 0.5s;
     }
 
-    .hero-content img {
-      width: 120px;
-      margin-bottom: 20px;
-    }
-
-    .hero-content h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+    .hero-content img { width: 120px; margin-bottom: 20px; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero-content p { font-size: 1.2rem; opacity: 0.9; }
 
     nav {
       position: absolute;
-      top: 20px;
-      right: 40px;
-      z-index: 2;
-      display: flex;
-      gap: 15px;
+      top: 20px; right: 40px;
+      z-index: 2; display: flex; gap: 15px;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      padding: 8px 16px;
-      border-radius: 50px;
+      color: white; text-decoration: none; font-weight: bold;
+      font-size: 1rem; padding: 8px 16px; border-radius: 50px;
       background: linear-gradient(135deg, #ff6600, #e65c00);
       box-shadow: 0 0 12px rgba(255, 102, 0, 0.7);
       transition: all 0.3s ease;
     }
-
     nav a:hover {
       background: linear-gradient(135deg, #e65c00, #cc5200);
       box-shadow: 0 0 20px rgba(255, 102, 0, 1);
@@ -91,53 +64,83 @@
     }
 
     section {
-      padding: 60px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
+      padding: 60px 20px; text-align: center;
+      opacity: 0; transform: translateY(40px);
       transition: opacity 1s ease, transform 1s ease;
     }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section.visible { opacity: 1; transform: translateY(0); }
 
     section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #ff6600;
+      font-size: 2rem; margin-bottom: 20px; color: #ff6600;
     }
 
     section p, section ul {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
+      max-width: 800px; margin: 0 auto;
+      font-size: 1.1rem; line-height: 1.6; color: #ddd;
     }
 
-    .discord-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #5865F2, #4e5de6);
-      color: white;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 14px 24px;
+    /* --- Boutique --- */
+    .shop-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .product {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 { color: #ff6600; margin-bottom: 10px; }
+    .product p { font-size: 0.95rem; margin-bottom: 10px; }
+    .price { font-weight: bold; color: #00ff99; margin-bottom: 15px; }
+
+    .buy-btn {
+      display: inline-block;
+      padding: 10px 20px;
       border-radius: 50px;
-      box-shadow: 0 0 15px rgba(88,101,242,0.7);
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(135deg, #ff6600, #e65c00);
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.7);
       transition: all 0.3s ease;
-      margin-top: 20px;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #e65c00, #cc5200);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 1);
     }
 
-    .discord-button img {
-      width: 28px;
-      height: 28px;
+    /* --- Autres --- */
+    .discord-button {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #5865F2, #4e5de6);
+      color: white; font-weight: bold; text-decoration: none;
+      font-size: 1.1rem; padding: 14px 24px; border-radius: 50px;
+      box-shadow: 0 0 15px rgba(88,101,242,0.7);
+      transition: all 0.3s ease; margin-top: 20px;
     }
-
+    .discord-button img { width: 28px; height: 28px; }
     .discord-button:hover {
       background: linear-gradient(135deg, #4752c4, #3b47a6);
       box-shadow: 0 0 25px rgba(88,101,242,1);
@@ -145,22 +148,13 @@
     }
 
     footer {
-      background: #111;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #bbb;
+      background: #111; text-align: center;
+      padding: 20px; font-size: 0.9rem; color: #bbb;
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -172,6 +166,7 @@
       <a href="#about">À propos</a>
       <a href="#services">Services</a>
       <a href="#roles">Rôles</a>
+      <a href="#shop">Boutique</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -187,7 +182,6 @@
     <p>
       FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace. 
       Nous mettons en avant la puissance et la performance de nos véhicules pour offrir des solutions logistiques adaptées à tous les besoins.
-      Notre entreprise propose aussi un service de <strong>livraison de livres</strong> 📚 pour élargir notre champ d’action.
     </p>
   </section>
 
@@ -198,7 +192,6 @@
       📦 Livraison rapide et sécurisée<br>
       🛠️ Service de logistique personnalisé<br>
       🌍 Couverture nationale et internationale<br>
-      📚 Livraison de livres spécialisée
     </p>
   </section>
 
@@ -211,11 +204,41 @@
     </ul>
   </section>
 
+  <!-- 🚀 Nouvelle Section Boutique -->
+  <section id="shop">
+    <h2>Notre Boutique</h2>
+    <p>Découvrez nos offres exclusives pour améliorer votre expérience 🚛</p>
+
+    <div class="shop-container">
+      <div class="product">
+        <img src="camion.jpg" alt="Camion">
+        <h3>Camion Premium</h3>
+        <p>Un véhicule puissant pour vos livraisons.</p>
+        <div class="price">199€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="gps.jpg" alt="GPS">
+        <h3>GPS Pro</h3>
+        <p>Navigation intelligente pour vos trajets.</p>
+        <div class="price">49€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="service.jpg" alt="Service">
+        <h3>Service Logistique</h3>
+        <p>Un accompagnement complet et efficace.</p>
+        <div class="price">99€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <h2>Contact</h2>
-    <p>
-      💬 Rejoignez-nous sur Discord pour toute demande ou information :
-    </p>
+    <p>💬 Rejoignez-nous sur Discord :</p>
     <a href="https://discord.com/invite/SwwSQarvnf" target="_blank" class="discord-button">
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon">
       Rejoindre notre serveur Discord
@@ -235,10 +258,7 @@
         }
       });
     }, { threshold: 0.2 });
-
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    sections.forEach(section => { observer.observe(section); });
   </script>
 
 </body>
