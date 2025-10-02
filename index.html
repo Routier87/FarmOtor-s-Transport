@@ -222,4 +222,100 @@
       <li>🎥 <strong>Media Team</strong> – Production de contenu média et promotion</li>
       <li>🚖 <strong>VTC Driver</strong> – Conducteur professionnel</li>
       <li>🤝 <strong>Co-Owner</strong> – Co-propriétaire de l’entreprise</li>
-      <li>👑 <strong>Owner</strong>
+      <li>👑 <strong>Owner</strong> – Propriétaire principal</li>
+    </ul>
+  </section>
+
+  <!-- 🚀 Nouvelle Section Boutique -->
+  <section id="shop">
+    <h2>Notre Boutique</h2>
+    <p>Découvrez nos offres exclusives pour personnaliser votre expérience 🚛</p>
+
+    <div class="shop-container">
+
+      <div class="product">
+        <img src="skin-camion.jpg" alt="Skin Camion" loading="lazy">
+        <h3>Skin Camion</h3>
+        <p>Personnalisez vos camions avec des skins uniques.</p>
+        <div class="price">15€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="skin-remorque.jpg" alt="Skin Remorque" loading="lazy">
+        <h3>Skin Remorque</h3>
+        <p>Apportez du style à vos remorques avec nos skins.</p>
+        <div class="price">12€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="pack-skin.jpg" alt="Pack complet de skins" loading="lazy">
+        <h3>Pack Complet de Skins</h3>
+        <p>Obtenez tous les skins camion & remorque dans un pack unique.</p>
+        <div class="price">39€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="tshirt.jpg" alt="T-shirt FarmOtor's Transport" loading="lazy">
+        <h3>T-shirt Officiel</h3>
+        <p>Un style unique aux couleurs de FarmOtor's Transport.</p>
+        <div class="price">19€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="pull.jpg" alt="Pull FarmOtor's Transport" loading="lazy">
+        <h3>Pull Officiel</h3>
+        <p>Confortable et stylé pour représenter l’entreprise.</p>
+        <div class="price">29€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="pantalon.jpg" alt="Pantalon FarmOtor's Transport" loading="lazy">
+        <h3>Pantalon Officiel</h3>
+        <p>Un pantalon pratique et moderne aux couleurs de FarmOtor's.</p>
+        <div class="price">34€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="product">
+        <img src="tasse.jpg" alt="Tasse FarmOtor's Transport" loading="lazy">
+        <h3>Tasse Officielle</h3>
+        <p>Commencez vos journées avec la tasse FarmOtor's.</p>
+        <div class="price">9€</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>💬 Rejoignez-nous sur Discord :</p>
+    <a href="https://discord.com/invite/SwwSQarvnf" target="_blank" class="discord-button">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon">
+      Rejoindre notre serveur Discord
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2025 FarmOtor's Transport - Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => { observer.observe(section); });
+  </script>
+
+</body>
+</html>
