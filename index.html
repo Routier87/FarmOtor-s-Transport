@@ -30,9 +30,42 @@
     section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
     section p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; color: #ddd; }
 
+    /* --- Rôles (cartes modernes) --- */
+    .roles-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .role-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .role-card span {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      font-weight: normal;
+      color: #ccc;
+    }
+    .role-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    }
+
+    /* --- Discord --- */
     .discord-button { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #5865F2, #4e5de6); color: white; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 14px 24px; border-radius: 50px; box-shadow: 0 0 15px rgba(88,101,242,0.7); transition: all 0.3s ease; margin-top: 20px; }
     .discord-button img { width: 28px; height: 28px; }
     .discord-button:hover { background: linear-gradient(135deg, #4752c4, #3b47a6); box-shadow: 0 0 25px rgba(88,101,242,1); transform: scale(1.08); }
+    
     footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
 
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -78,7 +111,16 @@
 
   <section id="roles">
     <h2>Nos Rôles en Entreprise</h2>
-    <p>👑 Owner – Propriétaire<br>🤝 Co-Owner – Co-propriétaire<br>👨‍✈️ VTC Driver – Conducteur</p>
+    <div class="roles-container">
+      <div class="role-card">👑 <strong>Owner</strong><br><span>Propriétaire principal</span></div>
+      <div class="role-card">🤝 <strong>Co-Owner</strong><br><span>Co-propriétaire</span></div>
+      <div class="role-card">📊 <strong>Manager</strong><br><span>Supervise l’équipe et organise les missions</span></div>
+      <div class="role-card">👔 <strong>Director Ressource Human</strong><br><span>Gère les ressources humaines et le recrutement</span></div>
+      <div class="role-card">📝 <strong>Recruiter</strong><br><span>Responsable de l’intégration des nouveaux membres</span></div>
+      <div class="role-card">🌐 <strong>Community Manager</strong><br><span>Anime et gère la communauté</span></div>
+      <div class="role-card">🎥 <strong>Media Team</strong><br><span>Création de contenus et médias</span></div>
+      <div class="role-card">👨‍✈️ <strong>VTC Driver</strong><br><span>Conducteur professionnel</span></div>
+    </div>
   </section>
 
   <section id="contact">
