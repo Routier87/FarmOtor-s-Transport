@@ -9,43 +9,54 @@
     body { font-family: Arial, Helvetica, sans-serif; color: white; background-color: #0d0d0d; scroll-behavior: smooth; }
     header { position: relative; height: 100vh; background: url('image.png') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
-    .hero-content { position: relative; z-index: 2; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease forwards 0.5s; }
+    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1s ease forwards 0.5s; }
     .hero-content img { width: 120px; margin-bottom: 20px; }
     .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; }
     .hero-content p { font-size: 1.2rem; opacity: 0.9; }
-    nav { position: absolute; top: 20px; right: 40px; z-index: 2; display: flex; gap: 15px; }
-    nav a { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; }
-    nav a:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
-    section { padding: 60px 20px; text-align: center; opacity: 0; transform: translateY(40px); transition: opacity 1s ease, transform 1s ease; }
-    section.visible { opacity: 1; transform: translateY(0); }
+
+    /* --- Navigation --- */
+    nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; }
+    nav a, nav .dropdown-btn { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; cursor: pointer; }
+    nav a:hover, nav .dropdown-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
+
+    /* --- Dropdown --- */
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; top: 40px; left: 0; background: #1a1a1a; border-radius: 10px; overflow: hidden; min-width: 200px; box-shadow: 0 0 15px rgba(0,0,0,0.7); }
+    .dropdown-content a { display: block; padding: 10px 16px; text-align: left; border-radius: 0; background: none; box-shadow: none; }
+    .dropdown-content a:hover { background: #333; transform: none; box-shadow: none; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    section { padding: 60px 20px; text-align: center; }
     section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
-    section p, section ul { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; color: #ddd; }
-    /* --- Boutique --- */
-    .shop-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
-    .product { background: #1a1a1a; border-radius: 12px; padding: 20px; width: 250px; text-align: center; box-shadow: 0 0 12px rgba(255, 102, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .product:hover { transform: translateY(-8px); box-shadow: 0 0 20px rgba(255, 102, 0, 0.7); }
-    .product img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-    .product h3 { color: #ff6600; margin-bottom: 10px; }
-    .product p { font-size: 0.95rem; margin-bottom: 10px; }
-    .price { font-weight: bold; color: #00ff99; margin-bottom: 15px; }
-    .buy-btn { display: inline-block; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; background: #0070ba; box-shadow: 0 0 12px rgba(0, 112, 186, 0.7); transition: all 0.3s ease; }
-    .buy-btn:hover { background: #005c9c; box-shadow: 0 0 20px rgba(0, 112, 186, 1); transform: scale(1.08); }
-    /* --- Autres --- */
+    section p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; color: #ddd; }
+
     .discord-button { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #5865F2, #4e5de6); color: white; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 14px 24px; border-radius: 50px; box-shadow: 0 0 15px rgba(88,101,242,0.7); transition: all 0.3s ease; margin-top: 20px; }
     .discord-button img { width: 28px; height: 28px; }
     .discord-button:hover { background: linear-gradient(135deg, #4752c4, #3b47a6); box-shadow: 0 0 25px rgba(88,101,242,1); transform: scale(1.08); }
     footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
+
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="#">Accueil</a>
+      <a href="index.html">Accueil</a>
       <a href="#about">À propos</a>
       <a href="#services">Services</a>
       <a href="#roles">Rôles</a>
-      <a href="#shop">Boutique</a>
+      <div class="dropdown">
+        <div class="dropdown-btn">Boutique ▼</div>
+        <div class="dropdown-content">
+          <a href="camions.html">🚛 Skins Camion</a>
+          <a href="remorques.html">🚚 Skins Remorque</a>
+          <a href="pack.html">🎨 Pack Complet Skins</a>
+          <a href="tshirt.html">👕 T-Shirt</a>
+          <a href="pull.html">🧥 Pull</a>
+          <a href="pantalon.html">👖 Pantalon</a>
+          <a href="tasse.html">☕ Tasse</a>
+        </div>
+      </div>
       <a href="#contact">Contact</a>
     </nav>
     <div class="hero-content">
@@ -57,92 +68,17 @@
 
   <section id="about">
     <h2>À propos</h2>
-    <p>
-      FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.
-      Nous mettons en avant la puissance et la performance de nos véhicules pour offrir des solutions logistiques adaptées à tous les besoins.
-    </p>
+    <p>FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.</p>
   </section>
 
   <section id="services">
     <h2>Nos Services</h2>
-    <p>
-      🚚 Transport longue distance<br>
-      📦 Livraison rapide et sécurisée<br>
-      🛠️ Service de logistique personnalisé<br>
-      🌍 Couverture nationale et internationale<br>
-    </p>
+    <p>🚚 Transport longue distance<br>📦 Livraison rapide et sécurisée<br>🛠️ Logistique personnalisée<br>🌍 Couverture nationale et internationale</p>
   </section>
 
-  <!-- ✅ Section rôles mise à jour -->
   <section id="roles">
     <h2>Nos Rôles en Entreprise</h2>
-    <ul>
-      <li>👑 <strong>Owner</strong> – Propriétaire principal</li>
-      <li>🤝 <strong>Co-Owner</strong> – Co-propriétaire</li>
-      <li>📊 <strong>Manager</strong> – Supervise l’équipe et organise les missions</li>
-      <li>👔 <strong>Director Ressource Human</strong> – Gère les ressources humaines et le recrutement</li>
-      <li>📝 <strong>Recruiter</strong> – Responsable de l’intégration des nouveaux membres</li>
-      <li>🌐 <strong>Community Manager</strong> – Anime et gère la communauté</li>
-      <li>🎥 <strong>Media Team</strong> – Création de contenus et médias</li>
-      <li>👨‍✈️ <strong>VTC Driver</strong> – Conducteur professionnel</li>
-    </ul>
-  </section>
-
-  <!-- 🚀 Section Boutique -->
-  <section id="shop">
-    <h2>Notre Boutique</h2>
-    <p>Découvrez nos offres exclusives 🚛</p>
-    <div class="shop-container">
-      <div class="product">
-        <img src="camion.jpg" alt="Camion">
-        <h3>Skin Camion</h3>
-        <p>Personnalisez votre camion avec style.</p>
-        <div class="price">29€</div>
-        <a href="https://paypal.me/farmsimulfr/29EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="remorque.jpg" alt="Remorque">
-        <h3>Skin Remorque</h3>
-        <p>Un design unique pour vos trajets.</p>
-        <div class="price">19€</div>
-        <a href="https://paypal.me/farmsimulfr/19EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="pack.jpg" alt="Pack Skins">
-        <h3>Pack Complet Skins</h3>
-        <p>Camion + Remorque assortis.</p>
-        <div class="price">39€</div>
-        <a href="https://paypal.me/farmsimulfr/39EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="tshirt.jpg" alt="T-Shirt">
-        <h3>T-Shirt</h3>
-        <p>Portez nos couleurs partout.</p>
-        <div class="price">15€</div>
-        <a href="https://paypal.me/farmsimulfr/15EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="pull.jpg" alt="Pull">
-        <h3>Pull</h3>
-        <p>Confortable et stylé.</p>
-        <div class="price">25€</div>
-        <a href="https://paypal.me/farmsimulfr/25EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="pantalon.jpg" alt="Pantalon">
-        <h3>Pantalon</h3>
-        <p>Prêt pour vos longues routes.</p>
-        <div class="price">30€</div>
-        <a href="https://paypal.me/farmsimulfr/30EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-      <div class="product">
-        <img src="tasse.jpg" alt="Tasse">
-        <h3>Tasse</h3>
-        <p>Idéale pour vos pauses café ☕</p>
-        <div class="price">10€</div>
-        <a href="https://paypal.me/farmsimulfr/10EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
-      </div>
-    </div>
+    <p>👑 Owner – Propriétaire<br>🤝 Co-Owner – Co-propriétaire<br>👨‍✈️ VTC Driver – Conducteur</p>
   </section>
 
   <section id="contact">
@@ -157,17 +93,5 @@
   <footer>
     <p>© 2025 FarmOtor's Transport - Tous droits réservés.</p>
   </footer>
-
-  <script>
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(section => { observer.observe(section); });
-  </script>
 </body>
 </html>
