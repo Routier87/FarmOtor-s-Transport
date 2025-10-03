@@ -15,7 +15,7 @@
     .hero-content p { font-size: 1.2rem; opacity: 0.9; }
 
     /* --- Navigation --- */
-    nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; flex-wrap: wrap; }
+    nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; }
     nav a, nav .dropdown-btn { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; cursor: pointer; }
     nav a:hover, nav .dropdown-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
 
@@ -74,7 +74,7 @@
 
     /* --- Effet lumineux sur le mot Farm --- */
     .farm-glow {
-      color: #1e1d57; /* HSV(229,66,34) */
+      color: #1e1d57;
       text-shadow: 0 0 5px #1e1d57, 0 0 10px #3a38a0, 0 0 20px #5c59d3;
       animation: farmGlow 1.5s ease-in-out infinite alternate;
     }
@@ -98,8 +98,6 @@
       overflow: hidden;
       color: white;
     }
-
-    /* --- Texte animé dégradé --- */
     .discord-button span {
       background: linear-gradient(270deg, #fff, #ddd, #999);
       background-size: 300% 300%;
@@ -113,7 +111,6 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Discord = bleu/violet néon */
     .discord-button.discord {
       background: linear-gradient(135deg, #5865F2, #4e5de6);
       box-shadow: 0 0 15px rgba(88, 101, 242, 0.9), 0 0 30px rgba(88, 101, 242, 0.7);
@@ -124,7 +121,6 @@
       to   { box-shadow: 0 0 25px rgba(114, 137, 218, 1), 0 0 45px rgba(114, 137, 218, 0.9); }
     }
 
-    /* Trucky = orange néon */
     .discord-button.trucky {
       background: linear-gradient(135deg, #ff6600, #cc5200);
       box-shadow: 0 0 15px rgba(255, 102, 0, 0.9), 0 0 30px rgba(255, 102, 0, 0.7);
@@ -135,69 +131,67 @@
       to   { box-shadow: 0 0 25px rgba(255, 136, 51, 1), 0 0 50px rgba(255, 136, 51, 0.9); }
     }
 
-    /* --- Formulaires Connexion/Inscription --- */
-    .login-form {
+    footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
+
+    /* --- Formulaire login --- */
+    #login form {
       max-width: 400px;
-      margin: 0 auto;
+      margin: 30px auto;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
       display: flex;
       flex-direction: column;
       gap: 15px;
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+      color: white;
     }
-    .login-form input {
-      padding: 10px 15px;
+    #login input {
+      padding: 10px;
       border-radius: 8px;
       border: none;
       outline: none;
-      font-size: 1rem;
     }
-    .login-form button {
-      padding: 12px;
+    #login button {
+      padding: 10px;
+      border-radius: 50px;
       border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #ff6600, #cc5200);
+      background: linear-gradient(135deg, #ff6600, #e65c00);
       color: white;
       font-weight: bold;
-      font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .login-form button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.7);
+    #login button:hover {
+      background: linear-gradient(135deg, #e65c00, #cc5200);
     }
-
-    footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
 
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
+
   <header>
     <nav>
-      <a href="index.html">Accueil</a>
-      <a href="#about">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#roles">Rôles</a>
-      <a href="#contract">Contrat Livraison</a>
+      <a href="https://www.FarmOtorsTransport.com" target="_blank">Accueil</a>
+      <a href="https://www.FarmOtorsTransport.com#about" target="_blank">À propos</a>
+      <a href="https://www.FarmOtorsTransport.com#services" target="_blank">Services</a>
+      <a href="https://www.FarmOtorsTransport.com#roles" target="_blank">Rôles</a>
+      <a href="https://www.FarmOtorsTransport.com#contract" target="_blank">Contrat Livraison</a>
       <div class="dropdown">
         <div class="dropdown-btn">Boutique ▼</div>
         <div class="dropdown-content">
-          <a href="camions.html">🚛 Skins Camion</a>
-          <a href="remorques.html">🚚 Skins Remorque</a>
-          <a href="pack.html">🎨 Pack Complet Skins</a>
-          <a href="tshirt.html">👕 T-Shirt</a>
-          <a href="pull.html">🧥 Pull</a>
-          <a href="pantalon.html">👖 Pantalon</a>
-          <a href="tasse.html">☕ Tasse</a>
+          <a href="https://www.FarmOtorsTransport.com/camions.html" target="_blank">🚛 Skins Camion</a>
+          <a href="https://www.FarmOtorsTransport.com/remorques.html" target="_blank">🚚 Skins Remorque</a>
+          <a href="https://www.FarmOtorsTransport.com/pack.html" target="_blank">🎨 Pack Complet Skins</a>
+          <a href="https://www.FarmOtorsTransport.com/tshirt.html" target="_blank">👕 T-Shirt</a>
+          <a href="https://www.FarmOtorsTransport.com/pull.html" target="_blank">🧥 Pull</a>
+          <a href="https://www.FarmOtorsTransport.com/pantalon.html" target="_blank">👖 Pantalon</a>
+          <a href="https://www.FarmOtorsTransport.com/tasse.html" target="_blank">☕ Tasse</a>
         </div>
       </div>
-      <a href="#contact">Contact</a>
-      <a href="#login">Connexion</a>
-      <a href="#register">Inscription</a>
+      <a href="https://www.FarmOtorsTransport.com#contact" target="_blank">Contact</a>
+      <a href="https://www.FarmOtorsTransport.com#login" target="_blank">Connexion</a>
     </nav>
     <div class="hero-content">
       <img src="image.png" alt="Logo FarmOtor's Transport">
@@ -206,6 +200,7 @@
     </div>
   </header>
 
+  <!-- Sections existantes -->
   <section id="about">
     <h2>À propos</h2>
     <p>FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.</p>
@@ -239,4 +234,28 @@
     <div class="roles-container">
       <div class="role-card">✅ <strong>Clarté</strong><br><span>Des termes précis et détaillés</span></div>
       <div class="role-card">🔒 <strong>Sécurité</strong><br><span>Engagement sur la protection des marchandises</span></div>
-      <div class="role-card">⏳ <strong>Délais</strong><br><span>Respect strict des horaires de
+      <div class="role-card">⏳ <strong>Délais</strong><br><span>Respect strict des horaires de livraison</span></div>
+      <div class="role-card">🤝 <strong>Engagement</strong><br><span>Un partenariat basé sur la confiance</span></div>
+    </div>
+
+    <p style="margin-top:30px;">📱 Nos contrats de livraison sont directement connectés avec <strong>Trucky</strong>, 
+    l’application de suivi en temps réel, afin de garantir la transparence et la traçabilité de toutes vos missions.</p>
+
+    <a href="https://truckyapp.com" target="_blank" class="discord-button trucky">
+      <img src="https://truckyapp.com/assets/images/favicon-32x32.png" alt="Trucky Icon" style="width:28px;height:28px;">
+      <span>Se connecter avec Trucky</span>
+    </a>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>💬 Rejoignez-nous sur Discord :</p>
+    <a href="https://discord.com/invite/SwwSQarvnf" target="_blank" class="discord-button discord">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon">
+      <span>Rejoindre notre serveur Discord</span>
+    </a>
+  </section>
+
+  <!-- Section Login -->
+  <section id="login">
+    <h
