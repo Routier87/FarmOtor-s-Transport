@@ -7,173 +7,188 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, Helvetica, sans-serif; color: white; background-color: #0d0d0d; scroll-behavior: smooth; }
-
-    /* Header & navigation */
     header { position: relative; height: 100vh; background: url('image.png') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
+    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1s ease forwards 0.5s; }
+    .hero-content img { width: 120px; margin-bottom: 20px; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero-content p { font-size: 1.2rem; opacity: 0.9; }
+
+    /* --- Navigation --- */
     nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; }
     nav a, nav .dropdown-btn { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; cursor: pointer; }
     nav a:hover, nav .dropdown-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
+
+    /* --- Dropdown --- */
     .dropdown { position: relative; }
     .dropdown-content { display: none; position: absolute; top: 40px; left: 0; background: #1a1a1a; border-radius: 10px; overflow: hidden; min-width: 200px; box-shadow: 0 0 15px rgba(0,0,0,0.7); }
-    .dropdown-content a { display: block; padding: 10px 16px; text-align: left; }
+    .dropdown-content a { display: block; padding: 10px 16px; text-align: left; border-radius: 0; background: none; box-shadow: none; }
+    .dropdown-content a:hover { background: #333; transform: none; box-shadow: none; }
     .dropdown:hover .dropdown-content { display: block; }
-    .hero-content { position: relative; z-index: 2; text-align: center; }
-    .hero-content img { width: 120px; margin-bottom: 20px; }
-    .hero-content h1 { font-size: 3rem; margin-bottom: 15px; color: #ff6600; text-shadow: 0 0 10px #ff6600; }
-    .hero-content p { font-size: 1.3rem; opacity: 0.9; }
 
-    /* Sections */
     section { padding: 60px 20px; text-align: center; }
-    section h2 { font-size: 2.5rem; margin-bottom: 20px; color: #ff6600; }
+    section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
     section p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; color: #ddd; }
 
-    /* Rôles et cartes */
-    .roles-container, .vehicles-container, .testimonials-container, .faq-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
-    .role-card, .vehicle-card, .testimonial-card, .faq-card { background: #1a1a1a; border-radius: 15px; padding: 20px; color: #fff; font-size: 1.1rem; font-weight: bold; box-shadow: 0 0 12px rgba(255, 102, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .role-card span, .vehicle-card span, .testimonial-card span, .faq-card span { display: block; margin-top: 10px; font-size: 0.95rem; font-weight: normal; color: #ccc; }
-    .role-card:hover, .vehicle-card:hover, .testimonial-card:hover, .faq-card:hover { transform: translateY(-8px); box-shadow: 0 0 20px rgba(255, 102, 0, 0.7); background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
+    /* --- Rôles / Cartes --- */
+    .roles-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+    .role-card { background: #1a1a1a; border-radius: 15px; padding: 20px; text-align: center; color: #fff; font-size: 1.1rem; font-weight: bold; box-shadow: 0 0 12px rgba(255, 102, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .role-card span { display: block; margin-top: 10px; font-size: 0.95rem; font-weight: normal; color: #ccc; }
+    .role-card:hover { transform: translateY(-8px); box-shadow: 0 0 20px rgba(255, 102, 0, 0.7); background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
 
-    /* Boutons néon */
-    .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: bold; font-size: 1.1rem; padding: 12px 20px; border-radius: 50px; text-decoration: none; color: white; transition: all 0.3s; }
-    .btn-trucky { background: linear-gradient(135deg, #ff6600, #cc5200); box-shadow: 0 0 15px rgba(255,102,0,0.8), 0 0 30px rgba(255,102,0,0.5); }
-    .btn-trucky:hover { box-shadow: 0 0 25px rgba(255,136,51,1), 0 0 50px rgba(255,136,51,0.9); transform: scale(1.05); }
-    .btn-discord { background: linear-gradient(135deg, #5865F2, #4e5de6); box-shadow: 0 0 15px rgba(88,101,242,0.9), 0 0 30px rgba(88,101,242,0.7); }
-    .btn-discord:hover { box-shadow: 0 0 25px rgba(114,137,218,1), 0 0 45px rgba(114,137,218,0.9); transform: scale(1.05); }
+    /* --- Glow --- */
+    .glow-role { color: #ff6600; text-shadow: 0 0 5px #ff6600, 0 0 10px #ff8533, 0 0 20px #ff9933; animation: glow 1.5s ease-in-out infinite alternate; }
+    @keyframes glow { from { text-shadow: 0 0 5px #ff6600, 0 0 10px #ff8533, 0 0 20px #ff9933; } to { text-shadow: 0 0 10px #ff8533, 0 0 20px #ff9933, 0 0 30px #ffaa66; } }
+    .farm-glow { color: #1e1d57; text-shadow: 0 0 5px #1e1d57, 0 0 10px #3a38a0, 0 0 20px #5c59d3; animation: farmGlow 1.5s ease-in-out infinite alternate; }
+    @keyframes farmGlow { from { text-shadow: 0 0 5px #1e1d57, 0 0 10px #3a38a0, 0 0 20px #5c59d3; } to { text-shadow: 0 0 10px #3a38a0, 0 0 20px #5c59d3, 0 0 30px #7a78f0; } }
+
+    /* --- Boutons néon --- */
+    .discord-button { display: inline-flex; align-items: center; gap: 10px; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 14px 24px; border-radius: 50px; transition: all 0.3s ease; position: relative; overflow: hidden; color: white; }
+    .discord-button span { background: linear-gradient(270deg, #fff, #ddd, #999); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradientMove 5s ease infinite; }
+    @keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .discord-button.discord { background: linear-gradient(135deg, #5865F2, #4e5de6); box-shadow: 0 0 15px rgba(88, 101, 242, 0.9), 0 0 30px rgba(88, 101, 242, 0.7); animation: pulseDiscord 2s infinite alternate; }
+    @keyframes pulseDiscord { from { box-shadow: 0 0 15px rgba(88, 101, 242, 0.8), 0 0 30px rgba(88, 101, 242, 0.5); } to { box-shadow: 0 0 25px rgba(114, 137, 218, 1), 0 0 45px rgba(114, 137, 218, 0.9); } }
+    .discord-button.trucky { background: linear-gradient(135deg, #ff6600, #cc5200); box-shadow: 0 0 15px rgba(255, 102, 0, 0.9), 0 0 30px rgba(255, 102, 0, 0.7); animation: pulseTrucky 2s infinite alternate; }
+    @keyframes pulseTrucky { from { box-shadow: 0 0 15px rgba(255, 102, 0, 0.7), 0 0 30px rgba(255, 102, 0, 0.5); } to { box-shadow: 0 0 25px rgba(255, 136, 51, 1), 0 0 50px rgba(255, 136, 51, 0.9); } }
 
     footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
-
-    /* Formulaire login */
-    #login { max-width: 400px; margin: 50px auto; background: #1a1a1a; padding: 30px; border-radius: 15px; box-shadow: 0 0 15px rgba(255,102,0,0.5); }
-    #login h3 { margin-bottom: 20px; color: #ff6600; }
-    #login input { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: none; font-size: 1rem; }
-    #login button { width: 100%; padding: 12px; font-size: 1.1rem; border-radius: 50px; border: none; background: #ff6600; color: white; cursor: pointer; transition: all 0.3s; }
-    #login button:hover { background: #e65c00; }
-
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <nav>
-      <a href="#about">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#roles">Rôles</a>
-      <a href="#vehicles">Véhicules</a>
-      <a href="#blog">Actualités</a>
-      <a href="#contact">Contact</a>
-      <a href="#login">Connexion</a>
-      <div class="dropdown">
-        <div class="dropdown-btn">Boutique ▼</div>
-        <div class="dropdown-content">
-          <a href="camions.html">🚛 Skins Camion</a>
-          <a href="remorques.html">🚚 Skins Remorque</a>
-          <a href="pack.html">🎨 Pack Complet Skins</a>
-          <a href="tshirt.html">👕 T-Shirt</a>
-          <a href="pull.html">🧥 Pull</a>
-          <a href="pantalon.html">👖 Pantalon</a>
-          <a href="tasse.html">☕ Tasse</a>
-        </div>
+<header>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="#about">À propos</a>
+    <a href="#services">Services</a>
+    <a href="#roles">Rôles</a>
+    <a href="#vehicles">Véhicules</a>
+    <a href="#contract">Contrat Livraison</a>
+    <a href="#login">Connexion</a>
+    <div class="dropdown">
+      <div class="dropdown-btn">Boutique ▼</div>
+      <div class="dropdown-content">
+        <a href="camions.html">🚛 Skins Camion</a>
+        <a href="remorques.html">🚚 Skins Remorque</a>
+        <a href="pack.html">🎨 Pack Complet Skins</a>
+        <a href="tshirt.html">👕 T-Shirt</a>
+        <a href="pull.html">🧥 Pull</a>
+        <a href="pantalon.html">👖 Pantalon</a>
+        <a href="tasse.html">☕ Tasse</a>
       </div>
-    </nav>
-    <div class="hero-content">
-      <img src="image.png" alt="Logo FarmOtor's Transport">
-      <h1>FarmOtor's Transport</h1>
-      <p>The horse power, vos performances 🐎</p>
     </div>
-  </header>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hero-content">
+    <img src="image.png" alt="Logo FarmOtor's Transport">
+    <h1>FarmOtor's Transport</h1>
+    <p>The horse power, vos performances 🐎</p>
+  </div>
+</header>
 
-  <!-- À propos -->
-  <section id="about">
-    <h2>À propos</h2>
-    <p>FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.</p>
-  </section>
+<section id="about">
+  <h2>À propos</h2>
+  <p>FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.</p>
+</section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Nos Services</h2>
-    <p>🚚 Transport longue distance<br>📦 Livraison rapide et sécurisée<br>🛠️ Logistique personnalisée<br>🌍 Couverture nationale et internationale</p>
-  </section>
+<section id="services">
+  <h2>Nos Services</h2>
+  <p>🚚 Transport longue distance<br>📦 Livraison rapide et sécurisée<br>🛠️ Logistique personnalisée<br>🌍 Couverture nationale et internationale</p>
+</section>
 
-  <!-- Rôles -->
-  <section id="roles">
-    <h2>Nos Rôles en Entreprise</h2>
-    <div class="roles-container">
-      <div class="role-card">👑 <strong>Owner</strong><br><span>Propriétaire principal</span></div>
-      <div class="role-card">🤝 <strong>Co-Owner</strong><br><span>Co-propriétaire</span></div>
-      <div class="role-card">📊 <strong>Manager</strong><br><span>Supervise l’équipe et organise les missions</span></div>
-      <div class="role-card">👔 <strong>Director Ressource Human</strong><br><span>Gère les ressources humaines et le recrutement</span></div>
-      <div class="role-card">📝 <strong>Recruiter</strong><br><span>Responsable de l’intégration des nouveaux membres</span></div>
-      <div class="role-card">🌐 <strong>Community Manager</strong><br><span>Anime et gère la communauté</span></div>
-      <div class="role-card">🎥 <strong>Media Team</strong><br><span>Création de contenus et médias</span></div>
-      <div class="role-card">👨‍✈️ <strong>VTC Driver</strong><br><span>Conducteurs professionnels</span></div>
-    </div>
-  </section>
+<section id="roles">
+  <h2>Nos Rôles en Entreprise</h2>
+  <div class="roles-container">
+    <div class="role-card">👑 <strong>Owner - <span class="farm-glow">Farm</span></strong><br><span>Propriétaire principal</span></div>
+    <div class="role-card">🤝 <strong class="glow-role">Co-Owner - Oxi-Wanteed13</strong><br><span>Co-propriétaire</span></div>
+    <div class="role-card">📊 <strong>Manager</strong><br><span>Supervise l’équipe et organise les missions</span></div>
+    <div class="role-card">👔 <strong>Director Ressource Human</strong><br><span>Gère les ressources humaines et le recrutement</span></div>
+    <div class="role-card">📝 <strong>Recruiter</strong><br><span>Responsable de l’intégration des nouveaux membres</span></div>
+    <div class="role-card">🌐 <strong>Community Manager</strong><br><span>Anime et gère la communauté</span></div>
+    <div class="role-card">🎥 <strong>Media Team</strong><br><span>Création de contenus et médias</span></div>
+    <div class="role-card">👨‍✈️ <strong class="glow-role">VTC Driver - Routier87, Filou Stitch</strong><br><span>Conducteurs professionnels</span></div>
+  </div>
+</section>
 
-  <!-- Véhicules -->
-  <section id="vehicles">
-    <h2>Nos Véhicules</h2>
-    <div class="vehicles-container">
-      <div class="vehicle-card">🚛 <strong>Camion Scania</strong><br><span>Longue distance et confort</span></div>
-      <div class="vehicle-card">🚚 <strong>Remorque frigorifique</strong><br><span>Transport sécurisé de marchandises sensibles</span></div>
-    </div>
-  </section>
+<section id="vehicles">
+  <h2>Nos Véhicules</h2>
+  <div class="roles-container">
+    <div class="role-card">🚛 <strong>Camion Scania</strong><br><span>Longue distance et confort</span></div>
+    <div class="role-card">🚛 <strong>Camion Volvo</strong><br><span>Puissance et fiabilité</span></div>
+    <div class="role-card">🚚 <strong>Remorque simple</strong><br><span>Transport sécurisé standard</span></div>
+    <div class="role-card">🚚 <strong>Remorque double</strong><br><span>Transport de grande capacité</span></div>
+    <div class="role-card">🚚 <strong>Remorque triple</strong><br><span>Transport extra long</span></div>
+    <div class="role-card">🚚 <strong>Big Train</strong><br><span>Transport exceptionnel</span></div>
+  </div>
+</section>
 
-  <!-- Blog / Actualités -->
-  <section id="blog">
-    <h2>Actualités</h2>
-    <p>Découvrez toutes nos nouveautés, événements et missions spéciales de FarmOtor's Transport.</p>
-  </section>
+<section id="contract">
+  <h2>Contrat Livraison</h2>
+  <p>📄 Chez <strong>FarmOtor's Transport</strong>, chaque mission de transport est régie par un contrat clair et transparent.  
+     Ce contrat garantit la sécurité, la fiabilité et le respect des délais pour toutes vos livraisons.  
+     Nos conducteurs s’engagent à honorer chaque prestation avec professionnalisme et efficacité.</p>
 
-  <!-- Contrat et Trucky -->
-  <section id="contract">
-    <h2>Contrat Livraison</h2>
-    <p>📄 Chaque mission de transport est régie par un contrat clair et transparent, garantissant sécurité et respect des délais.</p>
-    <a href="https://hub.truckyapp.com/vtc/farmotors-transport/apply" target="_blank" class="btn btn-trucky">
-      <span>Postuler via Trucky</span>
-    </a>
-  </section>
+  <div class="roles-container">
+    <div class="role-card">✅ <strong>Clarté</strong><br><span>Des termes précis et détaillés</span></div>
+    <div class="role-card">🔒 <strong>Sécurité</strong><br><span>Engagement sur la protection des marchandises</span></div>
+    <div class="role-card">⏳ <strong>Délais</strong><br><span>Respect strict des horaires de livraison</span></div>
+    <div class="role-card">🤝 <strong>Engagement</strong><br><span>Un partenariat basé sur la confiance</span></div>
+  </div>
 
-  <!-- Formulaire de connexion -->
-  <section id="login">
-    <h3>Connexion</h3>
-    <input type="text" id="username" placeholder="Nom d'utilisateur">
-    <input type="password" id="password" placeholder="Mot de passe">
-    <button onclick="checkLogin()">Se connecter</button>
-    <p id="login-msg" style="color:#ff6600; margin-top:10px;"></p>
-  </section>
+  <p style="margin-top:30px;">📱 Nos contrats de livraison sont directement connectés avec <strong>Trucky</strong>, 
+  l’application de suivi en temps réel, afin de garantir la transparence et la traçabilité de toutes vos missions.</p>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>💬 Rejoignez-nous sur Discord :</p>
-    <a href="https://discord.com/invite/SwwSQarvnf" target="_blank" class="btn btn-discord">
-      <span>Rejoindre Discord</span>
-    </a>
-  </section>
+  <a href="https://hub.truckyapp.com/vtc/farmotors-transport/apply" target="_blank" class="discord-button trucky">
+    <img src="https://truckyapp.com/assets/images/favicon-32x32.png" alt="Trucky Icon" style="width:28px;height:28px;">
+    <span>Se connecter avec Trucky</span>
+  </a>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 FarmOtor's Transport - Tous droits réservés.</p>
-  </footer>
+<section id="login">
+  <h2>Connexion</h2>
+  <p>Veuillez entrer vos identifiants pour accéder à votre espace.</p>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Nom d'utilisateur" required><br><br>
+    <input type="password" id="password" placeholder="Mot de passe" required><br><br>
+    <button type="submit">Se connecter</button>
+  </form>
+  <p id="loginMsg" style="color:#ff6600;margin-top:10px;"></p>
+</section>
 
-  <!-- JS Login -->
-  <script>
-    function checkLogin() {
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      const msg = document.getElementById('login-msg');
-      // exemple simple
-      if(username === "admin" && password === "1234") {
-        msg.textContent = "Connexion réussie !";
-        msg.style.color = "#00ff00";
-      } else {
-        msg.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
-        msg.style.color = "#ff6600";
-      }
+<section id="contact">
+  <h2>Contact</h2>
+  <p>💬 Rejoignez-nous sur Discord :</p>
+  <a href="https://discord.com/invite/SwwSQarvnf" target="_blank" class="discord-button discord">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon">
+    <span>Rejoindre notre serveur Discord</span>
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 FarmOtor's Transport - Tous droits réservés.</p>
+</footer>
+
+<script>
+  // Login simple
+  const loginForm = document.getElementById('loginForm');
+  const loginMsg = document.getElementById('loginMsg');
+
+  loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Exemple : utilisateur simple
+    if(username === "admin" && password === "1234") {
+      loginMsg.style.color = "lime";
+      loginMsg.textContent = "Connexion réussie ! Bienvenue " + username;
+    } else {
+      loginMsg.style.color = "red";
+      loginMsg.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
     }
-  </script>
+  });
+</script>
 
 </body>
 </html>
