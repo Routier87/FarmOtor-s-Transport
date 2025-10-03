@@ -28,8 +28,8 @@
     .product h3 { color: #ff6600; margin-bottom: 10px; }
     .product p { font-size: 0.95rem; margin-bottom: 10px; }
     .price { font-weight: bold; color: #00ff99; margin-bottom: 15px; }
-    .buy-btn { display: inline-block; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; margin-top: 8px; }
-    .buy-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); }
+    .buy-btn { display: inline-block; padding: 10px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; background: #0070ba; box-shadow: 0 0 12px rgba(0, 112, 186, 0.7); transition: all 0.3s ease; }
+    .buy-btn:hover { background: #005c9c; box-shadow: 0 0 20px rgba(0, 112, 186, 1); transform: scale(1.08); }
     /* --- Autres --- */
     .discord-button { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #5865F2, #4e5de6); color: white; font-weight: bold; text-decoration: none; font-size: 1.1rem; padding: 14px 24px; border-radius: 50px; box-shadow: 0 0 15px rgba(88,101,242,0.7); transition: all 0.3s ease; margin-top: 20px; }
     .discord-button img { width: 28px; height: 28px; }
@@ -73,7 +73,7 @@
     </p>
   </section>
 
-  <!-- ✅ Section Rôles mise à jour -->
+  <!-- ✅ Section rôles mise à jour -->
   <section id="roles">
     <h2>Nos Rôles en Entreprise</h2>
     <ul>
@@ -88,49 +88,60 @@
     </ul>
   </section>
 
-  <!-- 🚀 Section Boutique avec paiements -->
+  <!-- 🚀 Section Boutique -->
   <section id="shop">
     <h2>Notre Boutique</h2>
-    <p>Découvrez nos offres exclusives pour améliorer votre expérience 🚛</p>
+    <p>Découvrez nos offres exclusives 🚛</p>
     <div class="shop-container">
-      
-      <!-- Produit 1 -->
       <div class="product">
         <img src="camion.jpg" alt="Camion">
         <h3>Skin Camion</h3>
         <p>Personnalisez votre camion avec style.</p>
         <div class="price">29€</div>
-        <!-- PayPal -->
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="TON_EMAIL_PAYPAL@exemple.com">
-          <input type="hidden" name="item_name" value="Skin Camion">
-          <input type="hidden" name="amount" value="29.00">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Acheter avec PayPal" class="buy-btn">
-        </form>
-        <!-- Stripe -->
-        <button class="buy-btn" onclick="startStripeCheckout('Skin Camion',2900)">Acheter par Carte</button>
+        <a href="https://paypal.me/farmsimulfr/29EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
       </div>
-
-      <!-- Produit 2 -->
       <div class="product">
         <img src="remorque.jpg" alt="Remorque">
         <h3>Skin Remorque</h3>
         <p>Un design unique pour vos trajets.</p>
         <div class="price">19€</div>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="TON_EMAIL_PAYPAL@exemple.com">
-          <input type="hidden" name="item_name" value="Skin Remorque">
-          <input type="hidden" name="amount" value="19.00">
-          <input type="hidden" name="currency_code" value="EUR">
-          <input type="submit" value="Acheter avec PayPal" class="buy-btn">
-        </form>
-        <button class="buy-btn" onclick="startStripeCheckout('Skin Remorque',1900)">Acheter par Carte</button>
+        <a href="https://paypal.me/farmsimulfr/19EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
       </div>
-
-      <!-- Exemple : ajoute les autres produits de la même façon -->
+      <div class="product">
+        <img src="pack.jpg" alt="Pack Skins">
+        <h3>Pack Complet Skins</h3>
+        <p>Camion + Remorque assortis.</p>
+        <div class="price">39€</div>
+        <a href="https://paypal.me/farmsimulfr/39EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
+      </div>
+      <div class="product">
+        <img src="tshirt.jpg" alt="T-Shirt">
+        <h3>T-Shirt</h3>
+        <p>Portez nos couleurs partout.</p>
+        <div class="price">15€</div>
+        <a href="https://paypal.me/farmsimulfr/15EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
+      </div>
+      <div class="product">
+        <img src="pull.jpg" alt="Pull">
+        <h3>Pull</h3>
+        <p>Confortable et stylé.</p>
+        <div class="price">25€</div>
+        <a href="https://paypal.me/farmsimulfr/25EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
+      </div>
+      <div class="product">
+        <img src="pantalon.jpg" alt="Pantalon">
+        <h3>Pantalon</h3>
+        <p>Prêt pour vos longues routes.</p>
+        <div class="price">30€</div>
+        <a href="https://paypal.me/farmsimulfr/30EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
+      </div>
+      <div class="product">
+        <img src="tasse.jpg" alt="Tasse">
+        <h3>Tasse</h3>
+        <p>Idéale pour vos pauses café ☕</p>
+        <div class="price">10€</div>
+        <a href="https://paypal.me/farmsimulfr/10EUR" target="_blank" class="buy-btn">Payer avec PayPal</a>
+      </div>
     </div>
   </section>
 
@@ -157,22 +168,6 @@
       });
     }, { threshold: 0.2 });
     sections.forEach(section => { observer.observe(section); });
-
-    // ✅ Stripe paiement
-    const stripe = Stripe("pk_test_TA_CLE_PUBLIQUE_STRIPE");
-    function startStripeCheckout(name, amountCents) {
-      fetch('/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ item_name: name, amount: amountCents, currency: 'eur', quantity: 1 })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.sessionId) stripe.redirectToCheckout({ sessionId: data.sessionId });
-      })
-      .catch(err => console.error(err));
-    }
   </script>
-  <script src="https://js.stripe.com/v3/"></script>
 </body>
 </html>
