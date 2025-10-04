@@ -1,4 +1,8 @@
-FarmOtor/
-│── index.html
-│── images/
-│     │── scania.png
+image/
+ └── vehicules/
+      ├── scania.png
+      ├── volvo.png
+      ├── remorque-simple.png
+      ├── remorque-double.png
+      ├── remorque-triple.png
+      └── big-train.png
