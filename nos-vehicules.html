@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmOtor's Transport</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, Helvetica, sans-serif; color: white; background-color: #0d0d0d; scroll-behavior: smooth; }
+    header { position: relative; height: 100vh; background: url('image.png') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
+    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1s ease forwards 0.5s; }
+    .hero-content img { width: 120px; margin-bottom: 20px; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero-content p { font-size: 1.2rem; opacity: 0.9; }
+
+    /* --- Navigation --- */
+    nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; }
+    nav a, nav .dropdown-btn { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; cursor: pointer; }
+    nav a:hover, nav .dropdown-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
+
+    /* --- Dropdown --- */
+    .dropdown { position: relative; }
+    .dropdown-content { display: none; position: absolute; top: 40px; left: 0; background: #1a1a1a; border-radius: 10px; overflow: hidden; min-width: 200px; box-shadow: 0 0 15px rgba(0,0,0,0.7); }
+    .dropdown-content a { display: block; padding: 10px 16px; text-align: left; border-radius: 0; background: none; box-shadow: none; }
+    .dropdown-content a:hover { background: #333; transform: none; box-shadow: none; }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    section { padding: 60px 20px; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
+    section p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; color: #ddd; }
+
+    footer { background: #111; text-align: center; padding: 20px; font-size: 0.9rem; color: #bbb; }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#roles">Rôles</a>
+      <a href="nos-vehicules.html">Véhicules</a> <!-- 🔥 Modifié -->
+      <a href="#contract">Contrat Livraison</a>
+      <a href="#login">Connexion</a>
+      <div class="dropdown">
+        <div class="dropdown-btn">Boutique ▼</div>
+        <div class="dropdown-content">
+          <a href="camions.html">🚛 Skins Camion</a>
+          <a href="remorques.html">🚚 Skins Remorque</a>
+          <a href="pack.html">🎨 Pack Complet Skins</a>
+          <a href="tshirt.html">👕 T-Shirt</a>
+          <a href="pull.html">🧥 Pull</a>
+          <a href="pantalon.html">👖 Pantalon</a>
+          <a href="tasse.html">☕ Tasse</a>
+        </div>
+      </div>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hero-content">
+      <img src="image.png" alt="Logo FarmOtor's Transport">
+      <h1>FarmOtor's Transport</h1>
+      <p>The horse power, vos performances 🐎</p>
+    </div>
+  </header>
+
+  <!-- À propos -->
+  <section id="about">
+    <h2>À propos</h2>
+    <p>FarmOtor's Transport est une entreprise virtuelle spécialisée dans le transport routier moderne et efficace.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Nos Services</h2>
+    <p>🚚 Transport longue distance<br>📦 Livraison rapide et sécurisée<br>🛠️ Logistique personnalisée<br>🌍 Couverture nationale et internationale</p>
+  </section>
+
+  <!-- Rôles -->
+  <section id="roles">
+    <h2>Nos Rôles en Entreprise</h2>
+    <p>👑 Owner : Farm<br>🤝 Co-Owner : Oxi-Wanteed13<br>📊 Manager<br>👔 Ressources humaines<br>📝 Recruteur<br>🌐 Community Manager<br>🎥 Media Team<br>👨‍✈️ VTC Driver</p>
+  </section>
+
+  <!-- Contrat -->
+  <section id="contract">
+    <h2>Contrat Livraison</h2>
+    <p>📄 Chez <strong>FarmOtor's Transport</strong>, chaque mission de transport est régie par un contrat clair et transparent.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>💬 Rejoignez-nous sur Discord :</p>
+    <a href="https://discord.com/invite/SwwSQarvnf" target="_blank">👉 Discord</a>
+  </section>
+
+  <!-- Connexion -->
+  <section id="login">
+    <h2>Connexion</h2>
+    <form id="loginForm">
+      <label for="username">Nom d'utilisateur:</label><br>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Mot de passe:</label><br>
+      <input type="password" id="password" name="password"><br>
+      <button type="submit">Se connecter</button>
+      <p id="loginMessage"></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 FarmOtor's Transport - Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const loginMessage = document.getElementById('loginMessage');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if(username === 'admin' && password === '1234') {
+        loginMessage.style.color = 'lime';
+        loginMessage.textContent = 'Connexion réussie !';
+      } else {
+        loginMessage.style.color = 'red';
+        loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
+      }
+    });
+  </script>
+</body>
+</html>
