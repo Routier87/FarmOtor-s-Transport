@@ -122,6 +122,21 @@
       font-size: 0.9rem;
       margin-top: 60px;
     }
+
+    /* Style pour les cartes "en cours" */
+    .empty-card {
+      opacity: 0.4;
+      cursor: not-allowed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 260px;
+      font-size: 1.2rem;
+      color: #ff6600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
@@ -135,7 +150,7 @@
     <h2>Nos Sélections de Mods</h2>
 
     <div class="mods-grid">
-      <!-- ✅ Nouveau Pack FarmOtor's Transport -->
+      <!-- ✅ Pack FarmOtor's Transport -->
       <div class="mod-card">
         <img src="images/mod1.jpg" alt="Pack Mods FarmOtor's Transport">
         <h3>Pack Mods FarmOtor's Transport</h3>
@@ -156,26 +171,17 @@
         <a href="https://sharemods.com/jwubvdbt8zzx/mod.zip.html" target="_blank">Télécharger</a>
       </div>
 
-      <!-- Autres mods -->
-      <div class="mod-card">
-        <img src="images/mod2.jpg" alt="Remorque Bétaillère">
-        <h3>Remorque Bétaillère</h3>
-        <p>Transportez vos animaux dans cette magnifique remorque personnalisée.</p>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2345678901" target="_blank">Télécharger</a>
+      <!-- 🕓 En cours... -->
+      <div class="mod-card empty-card">
+        <p>En cours...</p>
       </div>
 
-      <div class="mod-card">
-        <img src="images/mod3.jpg" alt="Pack Sons Moteur">
-        <h3>Pack Sons Moteur V8</h3>
-        <p>Des sons moteur puissants et réalistes pour toutes vos marques préférées.</p>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3456789012" target="_blank">Télécharger</a>
+      <div class="mod-card empty-card">
+        <p>En cours...</p>
       </div>
 
-      <div class="mod-card">
-        <img src="images/mod4.jpg" alt="Trafic Réaliste">
-        <h3>Trafic Réaliste</h3>
-        <p>Améliorez votre expérience de conduite avec un trafic plus fluide et réaliste.</p>
-        <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=4567890123" target="_blank">Télécharger</a>
+      <div class="mod-card empty-card">
+        <p>En cours...</p>
       </div>
     </div>
 
