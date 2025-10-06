@@ -1,16 +1,179 @@
-if(username === 'RoutierFarm' && password === '878791') {
-  localStorage.setItem("connectedUser", username);
-  window.location.href = "dashboard.html";
-} else if(username === 'Farm' && password === '1234') {
-  localStorage.setItem("connectedUser", username);
-  window.location.href = "dashboard.html";
-} else if(username === 'Oxi-Wanteed13' && password === '5678') {
-  localStorage.setItem("connectedUser", username);
-  window.location.href = "dashboard.html";
-} else if(username === 'FilouStitch' && password === '9999') {
-  localStorage.setItem("connectedUser", username);
-  window.location.href = "dashboard.html";
-} else {
-  loginMessage.style.color = 'red';
-  loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord - FarmOtor's Transport</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+    }
+
+    h1 {
+      color: #ff6600;
+      margin: 0;
+    }
+
+    .username {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+    }
+
+    .dashboard-container {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      width: 280px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #bbb;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      color: #ff6600;
+      text-decoration: underline;
+    }
+
+    .logout-btn {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #ff6600, #cc5200);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.6);
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background: linear-gradient(135deg, #e65c00, #b34700);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tableau de bord</h1>
+    <div class="username" id="welcomeUser"></div>
+  </header>
+
+  <div class="dashboard-container" id="dashboardContent"></div>
+
+  <button class="logout-btn" id="logoutBtn">🚪 Déconnexion</button>
+
+  <script>
+    const user = localStorage.getItem("connectedUser");
+    const welcome = document.getElementById("welcomeUser");
+    const content = document.getElementById("dashboardContent");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (!user) {
+      // Si pas connecté, retour à la page principale
+      window.location.href = "index.html";
+    } else {
+      welcome.textContent = `Bienvenue, ${user} 👋`;
+
+      // Interface selon l'utilisateur
+      switch(user) {
+        case "Farm":
+          content.innerHTML = `
+            <div class="card">
+              <h2>👑 Panneau Administrateur</h2>
+              <p>Gérez les membres, les contrats et la boutique.</p>
+              <a href="admin/index.html">Accéder</a>
+            </div>
+            <div class="card">
+              <h2>📦 Dossiers des membres</h2>
+              <p>Consultez tous les dossiers des conducteurs.</p>
+              <a href="dossiers/">Ouvrir</a>
+            </div>
+          `;
+          break;
+
+        case "Oxi-Wanteed13":
+          content.innerHTML = `
+            <div class="card">
+              <h2>🔒 Zone Co-Owner</h2>
+              <p>Gestion des ressources et supervision des opérations.</p>
+              <a href="dossiers/oxi-wanteed13/">Voir mon espace</a>
+            </div>
+          `;
+          break;
+
+        case "RoutierFarm":
+          content.innerHTML = `
+            <div class="card">
+              <h2>🚚 Espace Routier87</h2>
+              <p>Accédez à vos rapports et documents.</p>
+              <a href="dossiers/routier87/">Ouvrir mon dossier</a>
+            </div>
+          `;
+          break;
+
+        case "FilouStitch":
+          content.innerHTML = `
+            <div class="card">
+              <h2>🤝 Espace Filou Stitch</h2>
+              <p>Consultez vos missions et fichiers.</p>
+              <a href="dossiers/filou-stitch/">Ouvrir mon dossier</a>
+            </div>
+          `;
+          break;
+
+        default:
+          content.innerHTML = `<p>Utilisateur non reconnu.</p>`;
+      }
+    }
+
+    // Déconnexion
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("connectedUser");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
