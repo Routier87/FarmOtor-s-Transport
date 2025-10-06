@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord - FarmOtor's Transport</title>
+<style>
+  body { font-family: Arial; background:#0d0d0d; color:white; text-align:center; padding:40px; }
+  h1 { color:#ff6600; }
+  .user-info { margin-top:20px; font-size:1.2rem; }
+  a { display:inline-block; margin-top:20px; color:#ff6600; text-decoration:none; font-weight:bold; }
+  a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+  <h1>Bienvenue sur ton espace membre</h1>
+  <p class="user-info" id="userInfo"></p>
+  <a href="index.html">⬅ Retour à l'accueil</a>
+
+  <script>
+    const user = localStorage.getItem("connectedUser");
+    if (!user) window.location.href = "login.html";
+    else document.getElementById("userInfo").textContent = `Connecté en tant que : ${user}`;
+  </script>
+</body>
+</html>
