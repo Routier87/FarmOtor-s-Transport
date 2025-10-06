@@ -85,4 +85,32 @@
     const loginMessage = document.getElementById('loginMessage');
 
     loginForm.addEventListener('submit', function(e) {
-      e
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Vérification des identifiants
+      if(username === 'RoutierFarm' && password === '878791') {
+        localStorage.setItem("connectedUser", username);
+        window.location.href = "dashboard.html";
+      } 
+      else if(username === 'Farm' && password === '1234') {
+        localStorage.setItem("connectedUser", username);
+        window.location.href = "dashboard.html";
+      }
+      else if(username === 'Oxi-Wanteed13' && password === '5678') {
+        localStorage.setItem("connectedUser", username);
+        window.location.href = "dashboard.html";
+      }
+      else if(username === 'FilouStitch' && password === '9999') {
+        localStorage.setItem("connectedUser", username);
+        window.location.href = "dashboard.html";
+      }
+      else {
+        loginMessage.style.color = 'red';
+        loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
+      }
+    });
+  </script>
+</body>
+</html>
