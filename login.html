@@ -99,10 +99,19 @@
       const user = document.getElementById('username').value.trim();
       const pass = document.getElementById('password').value.trim();
 
-      if (user === "RoutierFarm" && pass === "878791") {
+      // Liste des comptes autorisés
+      const comptes = {
+        "RoutierFarm": { mdp: "878791", redir: "dossiers/routier87/index.html" },
+        "Farm": { mdp: "1234", redir: "dossiers/farm/index.html" },
+        "Oxi-Wanteed13": { mdp: "oxiw13", redir: "dossiers/oxi-wanteed13/index.html" },
+        "FilouStitch": { mdp: "filou25", redir: "dossiers/filou-stitch/index.html" }
+      };
+
+      if (comptes[user] && comptes[user].mdp === pass) {
         msg.style.color = "lime";
         msg.textContent = "✅ Connexion réussie ! Redirection...";
-        setTimeout(()=>window.location.href="index.html",1500);
+        localStorage.setItem("connectedUser", user);
+        setTimeout(()=>window.location.href = comptes[user].redir, 1500);
       } else {
         msg.style.color = "red";
         msg.textContent = "❌ Identifiants incorrects";
