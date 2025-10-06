@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - FarmOtor's Transport</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: #111;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .login-box h1 {
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+    .login-box input:focus {
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+    }
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff6600, #cc5200);
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .login-box button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 1);
+    }
+    .message {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back:hover { text-decoration: underline; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h1>Connexion</h1>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+      <input type="password" id="password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+    <a href="index.html" class="back">⬅ Retour à l'accueil</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('loginMessage');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+
+      if (user === "RoutierFarm" && pass === "878791") {
+        msg.style.color = "lime";
+        msg.textContent = "✅ Connexion réussie ! Redirection...";
+        setTimeout(()=>window.location.href="index.html",1500);
+      } else {
+        msg.style.color = "red";
+        msg.textContent = "❌ Identifiants incorrects";
+      }
+    });
+  </script>
+
+</body>
+</html>
