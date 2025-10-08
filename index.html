@@ -7,20 +7,80 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, Helvetica, sans-serif; color: white; background-color: #0d0d0d; scroll-behavior: smooth; }
-    header { position: relative; height: 100vh; background: url('image.png') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    header::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
-    .hero-content { position: relative; z-index: 2; animation: fadeInUp 1s ease forwards 0.5s; }
+
+    /* === Header === */
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('image.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease forwards 0.5s;
+    }
     .hero-content img { width: 120px; margin-bottom: 20px; }
-    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; color: #ff6600; }
     .hero-content p { font-size: 1.2rem; opacity: 0.9; }
 
-    nav { position: absolute; top: 20px; right: 40px; z-index: 3; display: flex; gap: 15px; }
-    nav a, nav .dropdown-btn { color: white; text-decoration: none; font-weight: bold; font-size: 1rem; padding: 8px 16px; border-radius: 50px; background: linear-gradient(135deg, #ff6600, #e65c00); box-shadow: 0 0 12px rgba(255, 102, 0, 0.7); transition: all 0.3s ease; cursor: pointer; }
-    nav a:hover, nav .dropdown-btn:hover { background: linear-gradient(135deg, #e65c00, #cc5200); box-shadow: 0 0 20px rgba(255, 102, 0, 1); transform: scale(1.08); }
+    /* === Navigation === */
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav a, nav .dropdown-btn {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff6600, #e65c00);
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.7);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    nav a:hover, nav .dropdown-btn:hover {
+      background: linear-gradient(135deg, #e65c00, #cc5200);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 1);
+      transform: scale(1.08);
+    }
 
     .dropdown { position: relative; }
-    .dropdown-content { display: none; position: absolute; top: 40px; left: 0; background: #1a1a1a; border-radius: 10px; overflow: hidden; min-width: 200px; box-shadow: 0 0 15px rgba(0,0,0,0.7); }
-    .dropdown-content a { display: block; padding: 10px 16px; text-align: left; }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      min-width: 200px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 10px 16px;
+      text-align: left;
+    }
     .dropdown-content a:hover { background: #333; }
     .dropdown:hover .dropdown-content { display: block; }
 
@@ -28,11 +88,74 @@
     section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
     footer { background: #111; text-align: center; padding: 20px; color: #bbb; }
 
-    /* Connexion */
-    form { max-width: 400px; margin: 0 auto; background: #1a1a1a; padding: 20px; border-radius: 15px; box-shadow: 0 0 12px rgba(255, 102, 0, 0.3); }
-    input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 8px; border: none; }
-    button { width: 100%; padding: 12px; background: #ff6600; color: white; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; }
+    /* === Section Véhicules === */
+    .vehicules {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+      width: 280px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 102, 0, 0.8);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      color: #ff6600;
+      margin-bottom: 5px;
+    }
+    .card p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    /* === Formulaire Connexion === */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #ff6600;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
     button:hover { background: #e65c00; }
+
+    @media (max-width: 768px) {
+      .card { width: 90%; }
+      nav { position: static; justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -63,7 +186,49 @@
     </div>
   </header>
 
-  <!-- Section Connexion -->
+  <!-- === Section Véhicules === -->
+  <section id="vehicles">
+    <h2>Nos Véhicules</h2>
+    <div class="vehicules">
+      <div class="card">
+        <img src="image/vehicules/scania.png.png" alt="Camion Scania">
+        <h3>Camion Scania</h3>
+        <p>Longue distance et confort</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vehicules/volvo.png.png" alt="Camion Volvo">
+        <h3>Camion Volvo</h3>
+        <p>Puissance et fiabilité</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vehicules/remorque-simple.png.png" alt="Remorque simple">
+        <h3>Remorque simple</h3>
+        <p>Transport sécurisé standard</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vehicules/remorque-double.png.png" alt="Remorque double">
+        <h3>Remorque double</h3>
+        <p>Transport de grande capacité</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vehicules/remorque-triple.png.png" alt="Remorque triple">
+        <h3>Remorque triple</h3>
+        <p>Transport extra long</p>
+      </div>
+
+      <div class="card">
+        <img src="image/vehicules/big-train.png.png" alt="Big Train">
+        <h3>Big Train</h3>
+        <p>Transport exceptionnel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- === Section Connexion === -->
   <section id="login">
     <h2>Connexion</h2>
     <form id="loginForm">
@@ -89,24 +254,13 @@
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
 
-      // Vérification des identifiants
-      if(username === 'RoutierFarm' && password === '878791') {
+      if(username === 'RoutierFarm' && password === '878791' ||
+         username === 'Farm' && password === '1234' ||
+         username === 'Oxi-Wanteed13' && password === '5678' ||
+         username === 'FilouStitch' && password === '9999') {
         localStorage.setItem("connectedUser", username);
         window.location.href = "dashboard.html";
-      } 
-      else if(username === 'Farm' && password === '1234') {
-        localStorage.setItem("connectedUser", username);
-        window.location.href = "dashboard.html";
-      }
-      else if(username === 'Oxi-Wanteed13' && password === '5678') {
-        localStorage.setItem("connectedUser", username);
-        window.location.href = "dashboard.html";
-      }
-      else if(username === 'FilouStitch' && password === '9999') {
-        localStorage.setItem("connectedUser", username);
-        window.location.href = "dashboard.html";
-      }
-      else {
+      } else {
         loginMessage.style.color = 'red';
         loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
       }
