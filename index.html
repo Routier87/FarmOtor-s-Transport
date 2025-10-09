@@ -115,32 +115,6 @@
 
     footer { background: #111; text-align: center; padding: 20px; color: #bbb; }
 
-    /* === Section Rôles === */
-    .roles-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
-    .role-card {
-      background: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
-      width: 250px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .role-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 102, 0, 0.8);
-    }
-    .role-card h3 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
     /* === Section Véhicules === */
     .vehicules {
       display: flex;
@@ -176,7 +150,14 @@
       font-size: 0.9rem;
     }
 
-    /* === Contact === */
+    /* === Réseaux sociaux === */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
     .discord-link {
       display: inline-block;
       background: linear-gradient(135deg, #5865F2, #4752C4);
@@ -194,37 +175,8 @@
       transform: scale(1.08);
     }
 
-    /* === Connexion === */
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 0 12px rgba(255, 102, 0, 0.3);
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: none;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #ff6600;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover { background: #e65c00; }
-
     @media (max-width: 768px) {
-      .card, .role-card { width: 90%; }
+      .card { width: 90%; }
       nav { position: static; justify-content: center; }
     }
   </style>
@@ -265,20 +217,24 @@
   <section id="vehicles">
     <h2>Nos Véhicules</h2>
     <div class="vehicules">
-      <div class="card"><img src="image/vehicules/scania.png.png" alt="Camion Scania"><h3>Camion Scania</h3><p>Longue distance et confort</p></div>
-      <div class="card"><img src="image/vehicules/volvo.png.png" alt="Camion Volvo"><h3>Camion Volvo</h3><p>Puissance et fiabilité</p></div>
-      <div class="card"><img src="image/vehicules/remorque-simple.png.png" alt="Remorque simple"><h3>Remorque simple</h3><p>Transport sécurisé standard</p></div>
-      <div class="card"><img src="image/vehicules/remorque-double.png.png" alt="Remorque double"><h3>Remorque double</h3><p>Transport de grande capacité</p></div>
-      <div class="card"><img src="image/vehicules/remorque-triple.png.png" alt="Remorque triple"><h3>Remorque triple</h3><p>Transport extra long</p></div>
-      <div class="card"><img src="image/vehicules/big-train.png.png" alt="Big Train"><h3>Big Train</h3><p>Transport exceptionnel</p></div>
+      <div class="card"><img src="image/vehicules/scania.png" alt="Camion Scania"><h3>Camion Scania</h3><p>Longue distance et confort</p></div>
+      <div class="card"><img src="image/vehicules/volvo.png" alt="Camion Volvo"><h3>Camion Volvo</h3><p>Puissance et fiabilité</p></div>
+      <div class="card"><img src="image/vehicules/remorque-simple.png" alt="Remorque simple"><h3>Remorque simple</h3><p>Transport sécurisé standard</p></div>
+      <div class="card"><img src="image/vehicules/remorque-double.png" alt="Remorque double"><h3>Remorque double</h3><p>Transport de grande capacité</p></div>
+      <div class="card"><img src="image/vehicules/remorque-triple.png" alt="Remorque triple"><h3>Remorque triple</h3><p>Transport extra long</p></div>
+      <div class="card"><img src="image/vehicules/big-train.png" alt="Big Train"><h3>Big Train</h3><p>Transport exceptionnel</p></div>
     </div>
   </section>
 
   <!-- === Section Contact === -->
   <section id="contact">
     <h2>Contact</h2>
-    <p>💬 Rejoins notre communauté sur Discord :</p>
-    <a href="https://discord.gg/4DVYW8jkfF" target="_blank" class="discord-link">Rejoindre le Discord</a>
+    <p>💬 Rejoins notre communauté et suis-nous sur les réseaux :</p>
+    <div class="social-links">
+      <a href="https://discord.gg/4DVYW8jkfF" target="_blank" class="discord-link">💬 Discord</a>
+      <a href="https://www.instagram.com/farmsimulfr/" target="_blank" class="discord-link" style="background: linear-gradient(135deg, #E1306C, #C13584); box-shadow: 0 0 15px rgba(225, 48, 108, 0.7);">📸 Instagram</a>
+      <a href="https://www.snapchat.com/add/farmsimulfr89?share_id=Owir0FhFCDo&locale=fr-FR" target="_blank" class="discord-link" style="background: linear-gradient(135deg, #FFFC00, #FFD300); color: black; box-shadow: 0 0 15px rgba(255, 252, 0, 0.7);">👻 Snapchat</a>
+    </div>
   </section>
 
   <!-- === Section Connexion === -->
@@ -305,10 +261,12 @@
       e.preventDefault();
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
-      if(username === 'RoutierFarm' && password === '878791' ||
-         username === 'Farm' && password === '1234' ||
-         username === 'Oxi-Wanteed13' && password === '5678' ||
-         username === 'Filou Stitch' && password === '9999') {
+      if(
+        (username === 'RoutierFarm' && password === '878791') ||
+        (username === 'Farm' && password === '1234') ||
+        (username === 'Oxi-Wanteed13' && password === '5678') ||
+        (username === 'Filou Stitch' && password === '9999')
+      ) {
         localStorage.setItem("connectedUser", username);
         window.location.href = "dashboard.html";
       } else {
