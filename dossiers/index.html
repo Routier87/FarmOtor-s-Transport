@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiers des membres - FarmOtor's Transport</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 12px rgba(255, 102, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+    }
+    .card a {
+      text-decoration: none;
+      color: #00ccff;
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    .card a:hover {
+      color: #ff6600;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 40px;
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>📂 Dossiers des Membres</h1>
+  <p>Sélectionnez un dossier pour y accéder :</p>
+
+  <div class="container">
+    <div class="card">
+      <h2>🚚 Routier87</h2>
+      <a href="routier87/index.html">Ouvrir le dossier</a>
+    </div>
+
+    <div class="card">
+      <h2>🤝 Filou Stitch</h2>
+      <a href="filou-stitch/index.html">Ouvrir le dossier</a>
+    </div>
+
+    <div class="card">
+      <h2>🔒 Oxi-Wanteed13</h2>
+      <a href="oxi-wanteed13/index.html">Ouvrir le dossier</a>
+    </div>
+
+    <div class="card">
+      <h2>👑 Farm</h2>
+      <a href="farm/index.html">Ouvrir le dossier</a>
+    </div>
+  </div>
+
+  <a href="../dashboard.html" class="back">⬅ Retour au tableau de bord</a>
+</body>
+</html>
