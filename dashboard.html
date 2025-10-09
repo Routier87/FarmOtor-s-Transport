@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tableau de bord - FarmOtor's Transport</title>
+  <title>Profil & Tableau de bord - FarmOtor's Transport</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -29,6 +29,34 @@
       font-size: 1.2rem;
       margin-top: 10px;
       color: #ccc;
+    }
+
+    .profile-box {
+      background: #1a1a1a;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+      display: inline-block;
+      padding: 20px 40px;
+      margin-top: 30px;
+      text-align: left;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .profile-box img {
+      width: 90px;
+      border-radius: 50%;
+      border: 3px solid #ff6600;
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    .profile-box p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    .profile-box strong {
+      color: #ff6600;
     }
 
     .dashboard-container {
@@ -93,13 +121,24 @@
       background: linear-gradient(135deg, #e65c00, #b34700);
       transform: scale(1.05);
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Tableau de bord</h1>
+    <h1>Mon Profil - FarmOtor's Transport</h1>
     <div class="username" id="welcomeUser"></div>
   </header>
+
+  <div class="profile-box" id="profileBox">
+    <img src="image/logo.png" alt="Profil">
+    <p><strong>Nom d'utilisateur :</strong> <span id="userName"></span></p>
+    <p><strong>Rôle :</strong> <span id="userRole"></span></p>
+  </div>
 
   <div class="dashboard-container" id="dashboardContent"></div>
 
@@ -109,17 +148,20 @@
     const user = localStorage.getItem("connectedUser");
     const welcome = document.getElementById("welcomeUser");
     const content = document.getElementById("dashboardContent");
-    const logoutBtn = document.getElementById("logoutBtn");
+    const userNameSpan = document.getElementById("userName");
+    const userRoleSpan = document.getElementById("userRole");
 
     if (!user) {
-      // Si pas connecté, retour à la page principale
       window.location.href = "index.html";
     } else {
       welcome.textContent = `Bienvenue, ${user} 👋`;
+      userNameSpan.textContent = user;
 
-      // Interface selon l'utilisateur
-      switch(user) {
+      // Attribution des rôles selon l'utilisateur
+      let role = "Membre";
+      switch (user) {
         case "Farm":
+          role = "Co-Gérant 🧭";
           content.innerHTML = `
             <div class="card">
               <h2>👑 Panneau Administrateur</h2>
@@ -130,47 +172,49 @@
               <h2>📦 Dossiers des membres</h2>
               <p>Consultez tous les dossiers des conducteurs.</p>
               <a href="dossiers/">Ouvrir</a>
-            </div>
-          `;
+            </div>`;
+          break;
+
+        case "RoutierFarm":
+          role = "Fondateur 🚛";
+          content.innerHTML = `
+            <div class="card">
+              <h2>👑 Panneau du Fondateur</h2>
+              <p>Gestion complète du convoi et du staff.</p>
+              <a href="admin/index.html">Accéder</a>
+            </div>`;
           break;
 
         case "Oxi-Wanteed13":
+          role = "Responsable Convoi ⚙️";
           content.innerHTML = `
             <div class="card">
-              <h2>🔒 Zone Co-Owner</h2>
-              <p>Gestion des ressources et supervision des opérations.</p>
+              <h2>🔒 Zone Responsable</h2>
+              <p>Supervisez les convois et les plannings.</p>
               <a href="dossiers/oxi-wanteed13/">Voir mon espace</a>
-            </div>
-          `;
-          break;
-
-        case "Routier87":
-          content.innerHTML = `
-            <div class="card">
-              <h2>🚚 Espace Routier87</h2>
-              <p>Accédez à vos rapports et documents.</p>
-              <a href="dossiers/routier87/">Ouvrir mon dossier</a>
-            </div>
-          `;
+            </div>`;
           break;
 
         case "FilouStitch":
+          role = "Membre Officiel 📦";
           content.innerHTML = `
             <div class="card">
-              <h2>🤝 Espace Filou Stitch</h2>
-              <p>Consultez vos missions et fichiers.</p>
+              <h2>🚚 Espace Conducteur</h2>
+              <p>Accédez à vos missions et dossiers personnels.</p>
               <a href="dossiers/filou-stitch/">Ouvrir mon dossier</a>
-            </div>
-          `;
+            </div>`;
           break;
 
         default:
-          content.innerHTML = `<p>Utilisateur non reconnu.</p>`;
+          role = "Invité 👀";
+          content.innerHTML = `<p>Aucun accès spécial pour cet utilisateur.</p>`;
       }
+
+      userRoleSpan.textContent = role;
     }
 
-    // Déconnexion
-    logoutBtn.addEventListener("click", () => {
+    // Bouton de déconnexion
+    document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("connectedUser");
       window.location.href = "index.html";
     });
