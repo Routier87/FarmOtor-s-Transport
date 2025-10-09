@@ -36,6 +36,32 @@
     .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; color: #ff6600; }
     .hero-content p { font-size: 1.2rem; opacity: 0.9; }
 
+    /* === Bouton Trucky === */
+    .join-container {
+      margin-top: 25px;
+    }
+    .join-container p {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .join-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6600, #e65c00);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
+      transition: all 0.3s ease;
+    }
+    .join-btn:hover {
+      background: linear-gradient(135deg, #e65c00, #cc5200);
+      box-shadow: 0 0 25px rgba(255, 102, 0, 1);
+      transform: scale(1.08);
+    }
+
     /* === Navigation === */
     nav {
       position: absolute;
@@ -86,41 +112,33 @@
 
     section { padding: 60px 20px; text-align: center; }
     section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
+
     footer { background: #111; text-align: center; padding: 20px; color: #bbb; }
 
     /* === Section Rôles === */
-    #roles {
-      background: #111;
-      padding: 60px 20px;
-      text-align: center;
-    }
     .roles-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      padding: 20px;
     }
     .role-card {
       background: #1a1a1a;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
-      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
       width: 250px;
+      text-align: center;
+      padding: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .role-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+      box-shadow: 0 0 25px rgba(255, 102, 0, 0.8);
     }
     .role-card h3 {
       color: #ff6600;
       margin-bottom: 10px;
-    }
-    .role-card p {
-      font-size: 0.95rem;
-      color: #ddd;
     }
 
     /* === Section Véhicules === */
@@ -158,7 +176,25 @@
       font-size: 0.9rem;
     }
 
-    /* === Formulaire Connexion === */
+    /* === Contact === */
+    .discord-link {
+      display: inline-block;
+      background: linear-gradient(135deg, #5865F2, #4752C4);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(88,101,242,0.7);
+      transition: all 0.3s ease;
+    }
+    .discord-link:hover {
+      background: linear-gradient(135deg, #4752C4, #3642A0);
+      box-shadow: 0 0 25px rgba(88,101,242,1);
+      transform: scale(1.08);
+    }
+
+    /* === Connexion === */
     form {
       max-width: 400px;
       margin: 0 auto;
@@ -196,7 +232,6 @@
 <body>
   <header>
     <nav>
-      <a href="index.html">Accueil</a>
       <a href="#about">À propos</a>
       <a href="#services">Services</a>
       <a href="#roles">Rôles</a>
@@ -214,10 +249,15 @@
       </div>
       <a href="#contact">Contact</a>
     </nav>
+
     <div class="hero-content">
       <img src="image.png" alt="Logo FarmOtor's Transport">
       <h1>FarmOtor's Transport</h1>
       <p>The horse power, vos performances 🐎</p>
+      <div class="join-container">
+        <p>🚚 Tu veux rejoindre <strong>FarmOtor's Transport</strong> ?</p>
+        <a href="https://truckyapp.com/company/FarmOtor-s-Transport" target="_blank" class="join-btn">👉 Clique ici pour postuler sur Trucky</a>
+      </div>
     </div>
   </header>
 
@@ -225,22 +265,10 @@
   <section id="roles">
     <h2>Nos Rôles</h2>
     <div class="roles-container">
-      <div class="role-card">
-        <h3>🚛 Chauffeur</h3>
-        <p>Effectue les livraisons dans le respect des consignes et des horaires.</p>
-      </div>
-      <div class="role-card">
-        <h3>📦 Logisticien</h3>
-        <p>Organise les trajets, planifie les contrats et optimise les itinéraires.</p>
-      </div>
-      <div class="role-card">
-        <h3>🧭 Responsable Flotte</h3>
-        <p>Supervise les véhicules, gère la maintenance et veille au bon état du matériel.</p>
-      </div>
-      <div class="role-card">
-        <h3>💼 Gestionnaire</h3>
-        <p>Coordonne les membres et s’assure du bon déroulement des opérations internes.</p>
-      </div>
+      <div class="role-card"><h3>🚛 Chauffeur</h3><p>Transporter les marchandises avec efficacité et sécurité.</p></div>
+      <div class="role-card"><h3>⚙️ Mécanicien</h3><p>Assurer la maintenance et la préparation des camions.</p></div>
+      <div class="role-card"><h3>📦 Logisticien</h3><p>Planifier les trajets et coordonner les livraisons.</p></div>
+      <div class="role-card"><h3>🧭 Responsable convoi</h3><p>Encadrer les convois officiels et veiller à la sécurité du groupe.</p></div>
     </div>
   </section>
 
@@ -248,37 +276,20 @@
   <section id="vehicles">
     <h2>Nos Véhicules</h2>
     <div class="vehicules">
-      <div class="card">
-        <img src="image/vehicules/scania.png.png" alt="Camion Scania">
-        <h3>Camion Scania</h3>
-        <p>Longue distance et confort</p>
-      </div>
-      <div class="card">
-        <img src="image/vehicules/volvo.png.png" alt="Camion Volvo">
-        <h3>Camion Volvo</h3>
-        <p>Puissance et fiabilité</p>
-      </div>
-      <div class="card">
-        <img src="image/vehicules/remorque-simple.png.png" alt="Remorque simple">
-        <h3>Remorque simple</h3>
-        <p>Transport sécurisé standard</p>
-      </div>
-      <div class="card">
-        <img src="image/vehicules/remorque-double.png.png" alt="Remorque double">
-        <h3>Remorque double</h3>
-        <p>Transport de grande capacité</p>
-      </div>
-      <div class="card">
-        <img src="image/vehicules/remorque-triple.png.png" alt="Remorque triple">
-        <h3>Remorque triple</h3>
-        <p>Transport extra long</p>
-      </div>
-      <div class="card">
-        <img src="image/vehicules/big-train.png.png" alt="Big Train">
-        <h3>Big Train</h3>
-        <p>Transport exceptionnel</p>
-      </div>
+      <div class="card"><img src="image/vehicules/scania.png.png" alt="Camion Scania"><h3>Camion Scania</h3><p>Longue distance et confort</p></div>
+      <div class="card"><img src="image/vehicules/volvo.png.png" alt="Camion Volvo"><h3>Camion Volvo</h3><p>Puissance et fiabilité</p></div>
+      <div class="card"><img src="image/vehicules/remorque-simple.png.png" alt="Remorque simple"><h3>Remorque simple</h3><p>Transport sécurisé standard</p></div>
+      <div class="card"><img src="image/vehicules/remorque-double.png.png" alt="Remorque double"><h3>Remorque double</h3><p>Transport de grande capacité</p></div>
+      <div class="card"><img src="image/vehicules/remorque-triple.png.png" alt="Remorque triple"><h3>Remorque triple</h3><p>Transport extra long</p></div>
+      <div class="card"><img src="image/vehicules/big-train.png.png" alt="Big Train"><h3>Big Train</h3><p>Transport exceptionnel</p></div>
     </div>
+  </section>
+
+  <!-- === Section Contact === -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>💬 Rejoins notre communauté sur Discord :</p>
+    <a href="https://discord.gg/4DVYW8jkfF" target="_blank" class="discord-link">Rejoindre le Discord</a>
   </section>
 
   <!-- === Section Connexion === -->
@@ -305,14 +316,12 @@
       e.preventDefault();
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
-      if (
-        (username === 'RoutierFarm' && password === '878791') ||
-        (username === 'Farm' && password === '1234') ||
-        (username === 'Oxi-Wanteed13' && password === '5678') ||
-        (username === 'FilouStitch' && password === '9999')
-      ) {
-        localStorage.setItem('connectedUser', username);
-        window.location.href = 'dashboard.html';
+      if(username === 'RoutierFarm' && password === '878791' ||
+         username === 'Farm' && password === '1234' ||
+         username === 'Oxi-Wanteed13' && password === '5678' ||
+         username === 'FilouStitch' && password === '9999') {
+        localStorage.setItem("connectedUser", username);
+        window.location.href = "dashboard.html";
       } else {
         loginMessage.style.color = 'red';
         loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
