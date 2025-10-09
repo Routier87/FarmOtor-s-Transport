@@ -88,6 +88,41 @@
     section h2 { font-size: 2rem; margin-bottom: 20px; color: #ff6600; }
     footer { background: #111; text-align: center; padding: 20px; color: #bbb; }
 
+    /* === Section Rôles === */
+    #roles {
+      background: #111;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .roles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .role-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+      padding: 20px;
+      width: 250px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .role-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+    }
+    .role-card h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+    .role-card p {
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
     /* === Section Véhicules === */
     .vehicules {
       display: flex;
@@ -153,7 +188,7 @@
     button:hover { background: #e65c00; }
 
     @media (max-width: 768px) {
-      .card { width: 90%; }
+      .card, .role-card { width: 90%; }
       nav { position: static; justify-content: center; }
     }
   </style>
@@ -186,6 +221,29 @@
     </div>
   </header>
 
+  <!-- === Section Rôles === -->
+  <section id="roles">
+    <h2>Nos Rôles</h2>
+    <div class="roles-container">
+      <div class="role-card">
+        <h3>🚛 Chauffeur</h3>
+        <p>Effectue les livraisons dans le respect des consignes et des horaires.</p>
+      </div>
+      <div class="role-card">
+        <h3>📦 Logisticien</h3>
+        <p>Organise les trajets, planifie les contrats et optimise les itinéraires.</p>
+      </div>
+      <div class="role-card">
+        <h3>🧭 Responsable Flotte</h3>
+        <p>Supervise les véhicules, gère la maintenance et veille au bon état du matériel.</p>
+      </div>
+      <div class="role-card">
+        <h3>💼 Gestionnaire</h3>
+        <p>Coordonne les membres et s’assure du bon déroulement des opérations internes.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- === Section Véhicules === -->
   <section id="vehicles">
     <h2>Nos Véhicules</h2>
@@ -195,31 +253,26 @@
         <h3>Camion Scania</h3>
         <p>Longue distance et confort</p>
       </div>
-
       <div class="card">
         <img src="image/vehicules/volvo.png.png" alt="Camion Volvo">
         <h3>Camion Volvo</h3>
         <p>Puissance et fiabilité</p>
       </div>
-
       <div class="card">
         <img src="image/vehicules/remorque-simple.png.png" alt="Remorque simple">
         <h3>Remorque simple</h3>
         <p>Transport sécurisé standard</p>
       </div>
-
       <div class="card">
         <img src="image/vehicules/remorque-double.png.png" alt="Remorque double">
         <h3>Remorque double</h3>
         <p>Transport de grande capacité</p>
       </div>
-
       <div class="card">
         <img src="image/vehicules/remorque-triple.png.png" alt="Remorque triple">
         <h3>Remorque triple</h3>
         <p>Transport extra long</p>
       </div>
-
       <div class="card">
         <img src="image/vehicules/big-train.png.png" alt="Big Train">
         <h3>Big Train</h3>
@@ -248,18 +301,18 @@
   <script>
     const loginForm = document.getElementById('loginForm');
     const loginMessage = document.getElementById('loginMessage');
-
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const username = document.getElementById('username').value.trim();
       const password = document.getElementById('password').value.trim();
-
-      if(username === 'RoutierFarm' && password === '878791' ||
-         username === 'Farm' && password === '1234' ||
-         username === 'Oxi-Wanteed13' && password === '5678' ||
-         username === 'FilouStitch' && password === '9999') {
-        localStorage.setItem("connectedUser", username);
-        window.location.href = "dashboard.html";
+      if (
+        (username === 'RoutierFarm' && password === '878791') ||
+        (username === 'Farm' && password === '1234') ||
+        (username === 'Oxi-Wanteed13' && password === '5678') ||
+        (username === 'FilouStitch' && password === '9999')
+      ) {
+        localStorage.setItem('connectedUser', username);
+        window.location.href = 'dashboard.html';
       } else {
         loginMessage.style.color = 'red';
         loginMessage.textContent = 'Nom d’utilisateur ou mot de passe incorrect';
