@@ -43,7 +43,15 @@
     }
 
     .hero {
-      padding: 80px 20px;
+      padding: 60px 20px;
+    }
+
+    .hero img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+      margin-bottom: 30px;
     }
 
     .hero h2 {
@@ -118,6 +126,7 @@
   </header>
 
   <section class="hero">
+    <img src="af9833b6-baab-4368-b417-1a22d21a0c5b.png" alt="Camion FarmOtor’s Transport">
     <h2>Bienvenue chez FarmOtor’s Transport</h2>
     <p>
       Une entreprise virtuelle dédiée au transport sur simulation.  
@@ -135,7 +144,6 @@
   </footer>
 
   <script>
-    // Optionnel : si tu veux que le bouton "S’inscrire" ouvre directement l'inscription dans dashboard.html
     const params = new URLSearchParams(window.location.search);
     if (params.get("inscription") === "true") {
       localStorage.setItem("openRegisterForm", "true");
