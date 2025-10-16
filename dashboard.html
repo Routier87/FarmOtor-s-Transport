@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil & Tableau de bord - FarmOtor's Transport</title>
+  <title>Tableau de bord - FarmOtor's Transport</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,87 +25,73 @@
       margin: 0;
     }
 
-    .username {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ccc;
-    }
-
-    .profile-box {
-      background: #1a1a1a;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
-      display: inline-block;
-      padding: 20px 40px;
-      margin-top: 30px;
-      text-align: left;
-      animation: fadeIn 0.6s ease forwards;
-    }
-
-    .profile-box img {
-      width: 90px;
-      border-radius: 50%;
-      border: 3px solid #ff6600;
-      display: block;
-      margin: 0 auto 15px;
-    }
-
-    .profile-box p {
-      margin: 8px 0;
-      font-size: 1rem;
-    }
-
-    .profile-box strong {
-      color: #ff6600;
-    }
-
-    .dashboard-container {
+    .container {
       margin-top: 40px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
+      max-width: 400px;
       background: #1a1a1a;
-      border-radius: 10px;
-      width: 280px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-      transition: transform 0.3s ease;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .card:hover {
+    h2 {
+      color: #ff6600;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      width: 95%;
+      padding: 12px;
+      background: linear-gradient(135deg, #ff6600, #e65c00);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #e65c00, #cc5200);
       transform: scale(1.05);
     }
 
-    .card h2 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
-    .card p {
+    p {
       color: #bbb;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 0.9rem;
+      margin-top: 15px;
     }
 
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #00ccff;
+    a {
+      color: #ff6600;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .card a:hover {
-      color: #ff6600;
+    a:hover {
       text-decoration: underline;
     }
 
+    .hidden { display: none; }
+
+    .dashboard {
+      margin-top: 50px;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
     .logout-btn {
-      margin-top: 40px;
+      margin-top: 30px;
       background: linear-gradient(135deg, #ff6600, #cc5200);
       border: none;
       padding: 12px 24px;
@@ -129,95 +115,128 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Mon Profil - FarmOtor's Transport</h1>
-    <div class="username" id="welcomeUser"></div>
+    <h1>FarmOtor's Transport - Tableau de bord</h1>
   </header>
 
-  <div class="profile-box" id="profileBox">
-    <img src="image/logo.png" alt="Profil">
-    <p><strong>Nom d'utilisateur :</strong> <span id="userName"></span></p>
-    <p><strong>Rôle :</strong> <span id="userRole"></span></p>
+  <!-- === Formulaire de Connexion === -->
+  <div class="container" id="loginContainer">
+    <h2>Connexion</h2>
+    <input type="text" id="loginUser" placeholder="Nom d'utilisateur" required>
+    <input type="password" id="loginPass" placeholder="Mot de passe" required>
+    <button id="loginBtn">Se connecter</button>
+    <p>Pas encore de compte ? <a href="#" id="showRegister">Créer un compte</a></p>
+    <p id="loginMessage"></p>
   </div>
 
-  <div class="dashboard-container" id="dashboardContent"></div>
+  <!-- === Formulaire d’Inscription === -->
+  <div class="container hidden" id="registerContainer">
+    <h2>Créer un compte</h2>
+    <input type="text" id="registerUser" placeholder="Nom d'utilisateur" required>
+    <input type="password" id="registerPass" placeholder="Mot de passe" required>
+    <button id="registerBtn">S'inscrire</button>
+    <p>Déjà un compte ? <a href="#" id="showLogin">Se connecter</a></p>
+    <p id="registerMessage"></p>
+  </div>
 
-  <button class="logout-btn" id="logoutBtn">🚪 Déconnexion</button>
+  <!-- === Tableau de bord après connexion === -->
+  <div class="dashboard hidden" id="dashboard">
+    <h2>Bienvenue <span id="userDisplay"></span> 👋</h2>
+    <p>Tu es bien connecté à ton compte FarmOtor's Transport.</p>
+    <button class="logout-btn" id="logoutBtn">🚪 Déconnexion</button>
+  </div>
 
   <script>
-    const user = localStorage.getItem("connectedUser");
-    const welcome = document.getElementById("welcomeUser");
-    const content = document.getElementById("dashboardContent");
-    const userNameSpan = document.getElementById("userName");
-    const userRoleSpan = document.getElementById("userRole");
+    const loginContainer = document.getElementById("loginContainer");
+    const registerContainer = document.getElementById("registerContainer");
+    const dashboard = document.getElementById("dashboard");
+    const userDisplay = document.getElementById("userDisplay");
 
-    if (!user) {
-      window.location.href = "index.html";
-    } else {
-      welcome.textContent = `Bienvenue, ${user} 👋`;
-      userNameSpan.textContent = user;
+    const showLogin = document.getElementById("showLogin");
+    const showRegister = document.getElementById("showRegister");
 
-      // Attribution des rôles selon l'utilisateur
-      let role = "Membre";
-      switch (user) {
-        case "Farm":
-          role = "Co-Gérant 🧭";
-          content.innerHTML = `
-            <div class="card">
-              <h2>👑 Panneau Administrateur</h2>
-              <p>Gérez les membres, les contrats et la boutique.</p>
-              <a href="admin/index.html">Accéder</a>
-            </div>
-            <div class="card">
-              <h2>📦 Dossiers des membres</h2>
-              <p>Consultez tous les dossiers des conducteurs.</p>
-              <a href="dossiers/">Ouvrir</a>
-            </div>`;
-          break;
+    const loginBtn = document.getElementById("loginBtn");
+    const registerBtn = document.getElementById("registerBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-        case "RoutierFarm":
-          role = "Fondateur 🚛";
-          content.innerHTML = `
-            <div class="card">
-              <h2>👑 Panneau du Fondateur</h2>
-              <p>Gestion complète du convoi et du staff.</p>
-              <a href="admin/index.html">Accéder</a>
-            </div>`;
-          break;
+    const loginMessage = document.getElementById("loginMessage");
+    const registerMessage = document.getElementById("registerMessage");
 
-        case "Oxi-Wanteed13":
-          role = "Responsable Convoi ⚙️";
-          content.innerHTML = `
-            <div class="card">
-              <h2>🔒 Zone Responsable</h2>
-              <p>Supervisez les convois et les plannings.</p>
-              <a href="dossiers/oxi-wanteed13/">Voir mon espace</a>
-            </div>`;
-          break;
+    // --- Basculer entre inscription et connexion ---
+    showRegister.addEventListener("click", () => {
+      loginContainer.classList.add("hidden");
+      registerContainer.classList.remove("hidden");
+    });
 
-        case "FilouStitch":
-          role = "Membre Officiel 📦";
-          content.innerHTML = `
-            <div class="card">
-              <h2>🚚 Espace Conducteur</h2>
-              <p>Accédez à vos missions et dossiers personnels.</p>
-              <a href="dossiers/filou-stitch/">Ouvrir mon dossier</a>
-            </div>`;
-          break;
+    showLogin.addEventListener("click", () => {
+      registerContainer.classList.add("hidden");
+      loginContainer.classList.remove("hidden");
+    });
 
-        default:
-          role = "Invité 👀";
-          content.innerHTML = `<p>Aucun accès spécial pour cet utilisateur.</p>`;
+    // --- Enregistrement d’un nouveau compte ---
+    registerBtn.addEventListener("click", () => {
+      const username = document.getElementById("registerUser").value.trim();
+      const password = document.getElementById("registerPass").value.trim();
+
+      if (!username || !password) {
+        registerMessage.textContent = "Veuillez remplir tous les champs.";
+        registerMessage.style.color = "red";
+        return;
       }
 
-      userRoleSpan.textContent = role;
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+
+      if (users[username]) {
+        registerMessage.textContent = "Ce nom d'utilisateur existe déjà.";
+        registerMessage.style.color = "red";
+      } else {
+        users[username] = password;
+        localStorage.setItem("users", JSON.stringify(users));
+        registerMessage.textContent = "Compte créé avec succès ! Vous pouvez maintenant vous connecter.";
+        registerMessage.style.color = "lime";
+        setTimeout(() => {
+          registerContainer.classList.add("hidden");
+          loginContainer.classList.remove("hidden");
+        }, 1500);
+      }
+    });
+
+    // --- Connexion ---
+    loginBtn.addEventListener("click", () => {
+      const username = document.getElementById("loginUser").value.trim();
+      const password = document.getElementById("loginPass").value.trim();
+
+      let users = JSON.parse(localStorage.getItem("users")) || {};
+
+      if (users[username] && users[username] === password) {
+        localStorage.setItem("connectedUser", username);
+        afficherDashboard(username);
+      } else {
+        loginMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+        loginMessage.style.color = "red";
+      }
+    });
+
+    // --- Afficher le dashboard si connecté ---
+    function afficherDashboard(username) {
+      loginContainer.classList.add("hidden");
+      registerContainer.classList.add("hidden");
+      dashboard.classList.remove("hidden");
+      userDisplay.textContent = username;
     }
 
-    // Bouton de déconnexion
-    document.getElementById("logoutBtn").addEventListener("click", () => {
+    // --- Déconnexion ---
+    logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("connectedUser");
-      window.location.href = "index.html";
+      dashboard.classList.add("hidden");
+      loginContainer.classList.remove("hidden");
     });
+
+    // --- Vérifier si déjà connecté ---
+    const user = localStorage.getItem("connectedUser");
+    if (user) afficherDashboard(user);
   </script>
+
 </body>
 </html>
