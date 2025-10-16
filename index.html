@@ -33,7 +33,7 @@
       animation: fadeInUp 1s ease forwards 0.5s;
     }
     .hero-content img { width: 120px; margin-bottom: 20px; }
-    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; color: #ff6600; }
+    .hero-content h1 { font-size: 2.5rem; margin-bottom: 15px; color: #ff6600; text-shadow: 0 0 10px rgba(255,102,0,0.8); }
     .hero-content p { font-size: 1.2rem; opacity: 0.9; }
 
     /* === Bouton Trucky === */
@@ -191,6 +191,11 @@
     @media (max-width: 768px) {
       nav { position: static; justify-content: center; }
     }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -210,6 +215,7 @@
           <a href="mods.html">🧩 Mods ETS2</a>
         </div>
       </div>
+      <a href="jeux.html">🎮 Jeux</a>
       <a href="#contact">Contact</a>
     </nav>
 
