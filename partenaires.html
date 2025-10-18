@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partenaires – FarmOtor’s Transport</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: "Segoe UI", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ---- HEADER ---- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 45px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .logo-container h1 {
+      color: #ff6600;
+      font-size: 1.6rem;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff6600;
+    }
+
+    /* ---- MENU HAMBURGER ---- */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #ff6600;
+      cursor: pointer;
+      z-index: 15;
+      user-select: none;
+    }
+
+    .menu-toggle:hover {
+      color: #ffa64d;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        display: block;
+        margin: 12px 0;
+        font-size: 1.1rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* ---- BANNIÈRE ---- */
+    .banner {
+      margin-top: 80px;
+      background: linear-gradient(135deg, #ff6600, #cc5200);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 0 25px rgba(255, 102, 0, 0.6);
+      animation: glow 3s infinite ease-in-out;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255, 102, 0, 0.6); }
+      50% { box-shadow: 0 0 40px rgba(255, 102, 0, 1); }
+    }
+
+    .banner a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .banner a:hover {
+      color: #000;
+      background: #fff;
+      border-radius: 6px;
+      padding: 2px 8px;
+      transition: 0.3s;
+    }
+
+    /* ---- SECTION PARTENAIRES ---- */
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      color: #ff6600;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      color: #ccc;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .partner-card {
+      background: #111;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+    }
+
+    .partner-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      background-color: #fff;
+    }
+
+    .partner-card h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .partner-card p {
+      color: #bbb;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .partner-card a {
+      display: inline-block;
+      color: #0099ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .partner-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 20px;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 480px) {
+      .banner {
+        font-size: 1.1rem;
+        padding: 15px;
+      }
+
+      main h2 {
+        font-size: 2rem;
+      }
+      main p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo-farmotor.png" alt="Logo FarmOtor">
+      <h1>FarmOtor’s Transport</h1>
+    </div>
+
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <nav id="nav-menu">
+      <a href="index.html">Accueil</a>
+      <a href="jeux.html">🎮 Jeux</a>
+      <a href="partenaires.html">🤝 Partenaires</a>
+      <a href="contact.html">📞 Contact</a>
+    </nav>
+  </header>
+
+  <!-- 🎉 Bannière spéciale partenaire -->
+  <div class="banner">
+    🚀 Nous sommes fiers d’être <strong>partenaires officiels</strong> avec 
+    <a href="https://www.nicestudiofivem.fr/" target="_blank">Nice Studio FiveM</a> !
+  </div>
+
+  <main>
+    <h2>Nos Partenaires Officiels</h2>
+    <p>
+      Découvrez nos partenaires qui soutiennent <strong>FarmOtor’s Transport</strong>  
+      et partagent notre passion du transport et de la simulation !
+    </p>
+
+    <div class="partners-grid">
+      <div class="partner-card">
+        <img src="nicestudio-logo.png" alt="NiceStudioFiveM">
+        <h3>NiceStudio FiveM</h3>
+        <p>Développement, hébergement et création d’expériences immersives sur FiveM.  
+           Un partenaire de confiance pour l’innovation virtuelle.</p>
+        <a href="https://www.nicestudiofivem.fr/" target="_blank">🌐 Visiter le site</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 FarmOtor’s Transport — Tous droits réservés
+  </footer>
+
+  <script>
+    // Menu hamburger
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggle.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+    });
+  </script>
+
+</body>
+</html>
