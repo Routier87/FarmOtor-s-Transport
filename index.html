@@ -3,259 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FarmOtor’s Transport</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: "Segoe UI", Arial, sans-serif;
-      overflow-x: hidden;
-    }
-
-    /* ---- HEADER ---- */
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 0;
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 30px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-container img {
-      height: 45px;
-      width: auto;
-      border-radius: 8px;
-    }
-
-    .logo-container h1 {
-      color: #ff6600;
-      font-size: 1.6rem;
-      margin: 0;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ff6600;
-    }
-
-    /* ---- MENU HAMBURGER ---- */
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: #ff6600;
-      cursor: pointer;
-      z-index: 15;
-      user-select: none;
-    }
-
-    .menu-toggle:hover {
-      color: #ffa64d;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        padding: 20px 0;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-        animation: slideDown 0.4s ease forwards;
-      }
-
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        display: block;
-        margin: 12px 0;
-        font-size: 1.1rem;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    /* ---- HERO ---- */
-    .hero {
-      height: 100vh;
-      width: 100%;
-      background: linear-gradient(
-          rgba(0, 0, 0, 0.55),
-          rgba(0, 0, 0, 0.8)
-        ),
-        url('camion-farmotor.png') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.05); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-      color: #ff6600;
-      margin-bottom: 15px;
-      text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-      animation: slideUp 1s ease forwards;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: #ddd;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-      animation: slideUp 1.5s ease forwards;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .btn-container {
-      animation: slideUp 2s ease forwards;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #ff6600, #e65c00);
-      color: white;
-      padding: 14px 35px;
-      border-radius: 50px;
-      font-weight: bold;
-      margin: 10px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
-    }
-
-    .btn:hover {
-      background: linear-gradient(135deg, #e65c00, #cc5200);
-      transform: scale(1.07);
-      box-shadow: 0 0 25px rgba(255, 102, 0, 0.8);
-    }
-
-    .btn-login {
-      background: linear-gradient(135deg, #0099ff, #0066cc);
-    }
-
-    .btn-login:hover {
-      background: linear-gradient(135deg, #007acc, #004c99);
-    }
-
-    .btn-register {
-      background: linear-gradient(135deg, #00cc66, #00994d);
-    }
-
-    .btn-register:hover {
-      background: linear-gradient(135deg, #00b359, #008040);
-    }
-
-    footer {
-      background: #111;
-      color: #aaa;
-      padding: 20px;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    /* ---- RESPONSIVE ---- */
-    @media (max-width: 768px) {
-      .logo-container h1 {
-        font-size: 1.3rem;
-      }
-
-      .hero h2 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn {
-        padding: 12px 25px;
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 1.6rem;
-      }
-
-      .hero p {
-        font-size: 0.9rem;
-      }
-
-      .btn-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 80%;
-        margin: 8px 0;
-      }
-    }
-  </style>
+  <title>Partenaires – FarmOtor’s Transport</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
   <header>
     <div class="logo-container">
-      <img src="logo-farmotor.png" alt="Logo FarmOtor">
+      <img src="assets/images/logo-farmotor.png" alt="Logo FarmOtor">
       <h1>FarmOtor’s Transport</h1>
     </div>
 
@@ -263,44 +18,45 @@
 
     <nav id="nav-menu">
       <a href="index.html">Accueil</a>
-      <a href="jeux.html">🎮 Jeux</a>
+      <a href="#">🎮 Jeux</a>
       <a href="partenaires.html">🤝 Partenaires</a>
-      <a href="contact.html">📞 Contact</a>
+      <a href="#">📞 Contact</a>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Bienvenue chez FarmOtor’s Transport</h2>
+  <div class="banner-image">
+    <img src="assets/images/banniere-partenariat.png" alt="Partenariat Officiel FarmOtor x Nice Studio FiveM">
+  </div>
+
+  <main>
+    <h2>Nos Partenaires Officiels</h2>
     <p>
-      Une entreprise virtuelle dédiée au transport sur simulation.<br>
-      Rejoins la communauté et deviens un conducteur FarmOtor officiel !
+      Découvrez nos partenaires qui soutiennent <strong>FarmOtor’s Transport</strong>  
+      et partagent notre passion du transport et de la simulation !
     </p>
-    <div class="btn-container">
-      <a href="dashboard.html" class="btn btn-login">🔐 Connexion</a>
-      <a href="dashboard.html?inscription=true" class="btn btn-register">📝 S’inscrire</a>
+
+    <div class="partners-grid">
+      <div class="partner-card">
+        <img src="assets/images/logo-nicestudio.png" alt="NiceStudioFiveM">
+        <h3>NiceStudio FiveM</h3>
+        <p>Développement, hébergement et création d’expériences immersives sur FiveM.  
+           Un partenaire de confiance pour l’innovation virtuelle.</p>
+        <a href="https://www.nicestudiofivem.fr/" target="_blank">🌐 Visiter le site</a>
+      </div>
     </div>
-  </section>
+  </main>
 
   <footer>
     © 2025 FarmOtor’s Transport — Tous droits réservés
   </footer>
 
   <script>
-    // Gestion du menu hamburger
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       menuToggle.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
     });
-
-    // Redirection si inscription
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("inscription") === "true") {
-      localStorage.setItem("openRegisterForm", "true");
-      window.location.href = "dashboard.html";
-    }
   </script>
 
 </body>
