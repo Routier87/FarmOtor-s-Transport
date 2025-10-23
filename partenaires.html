@@ -4,85 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partenaires – FarmOtor’s Transport</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <link rel="icon" type="image/png" href="assets/images/logo-farmotor.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
-    body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: "Segoe UI", Arial, sans-serif;
-      overflow-x: hidden;
-    }
+  <header>
+    <div class="logo-container">
+      <img src="assets/images/logo-farmotor.png" alt="Logo FarmOtor">
+      <h1>FarmOtor’s Transport</h1>
+    </div>
 
-    /* ---- HEADER ---- */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 10px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
-      z-index: 10;
-    }
+    <div class="menu-toggle" id="menu-toggle">☰</div>
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    <nav id="nav-menu">
+      <a href="index.html">🏠 Accueil</a>
+      <a href="#">🎮 Jeux</a>
+      <a href="partenaires.html" class="active">🤝 Partenaires</a>
+      <a href="contact.html">📞 Contact</a>
+    </nav>
+  </header>
 
-    .logo-container img {
-      height: 45px;
-      width: auto;
-      border-radius: 8px;
-    }
+  <section class="banner">
+    <h2>Partenariat Officiel</h2>
+    <img src="assets/images/banniere-partenariat.png" alt="Partenariat Officiel FarmOtor x Nice Studio FiveM">
+  </section>
 
-    .logo-container h1 {
-      color: #ff6600;
-      font-size: 1.6rem;
-      margin: 0;
-    }
+  <main>
+    <h2>Nos Partenaires Officiels</h2>
+    <p>
+      Découvrez nos partenaires qui soutiennent <strong>FarmOtor’s Transport</strong>  
+      et partagent notre passion du transport et de la simulation !
+    </p>
 
-    nav {
-      display: flex;
-      align-items: center;
-    }
+    <div class="partners-grid">
+      <div class="partner-card">
+        <img src="assets/images/logo-nicestudio.png" alt="NiceStudioFiveM">
+        <h3>NICE STUDIO FIVEM</h3>
+        <p>Développement, hébergement et création d’expériences immersives sur FiveM.  
+           Un partenaire de confiance pour l’innovation virtuelle.</p>
+        <a href="https://www.nicestudiofivem.fr/" target="_blank">🌐 Visiter le site</a>
+      </div>
+    </div>
+  </main>
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #ff6600;
-    }
-
-    /* ---- MENU HAMBURGER ---- */
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: #ff6600;
-      cursor: pointer;
-      z-index: 15;
-      user-select: none;
-    }
-
-    .menu-toggle:hover {
-      color: #ffa64d;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direct
+  <footer>
+    © 2025 FarmOtor’s Transport — Tous dro
