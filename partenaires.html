@@ -19,7 +19,6 @@
 
     <nav id="nav-menu">
       <a href="index.html">🏠 Accueil</a>
-      <a href="#">🎮 Jeux</a>
       <a href="partenaires.html" class="active">🤝 Partenaires</a>
       <a href="contact.html">📞 Contact</a>
     </nav>
@@ -38,15 +37,50 @@
     </p>
 
     <div class="partners-grid">
+
+      <!-- FARMOTOR -->
       <div class="partner-card">
-        <img src="assets/images/logo-nicestudio.png" alt="NiceStudioFiveM">
-        <h3>NICE STUDIO FIVEM</h3>
-        <p>Développement, hébergement et création d’expériences immersives sur FiveM.  
-           Un partenaire de confiance pour l’innovation virtuelle.</p>
-        <a href="https://www.nicestudiofivem.fr/" target="_blank">🌐 Visiter le site</a>
+        <img src="assets/images/logo-farmotor.png" alt="Logo FarmOtor">
+        <h3>🚜 FARMOTOR’S TRANSPORT</h3>
+        <ul class="partner-info">
+          <li>🌐 <strong>Site :</strong> En cours</li>
+          <li>📧 <strong>Email :</strong> <a href="mailto:farmsimulfr@gmail.com">farmsimulfr@gmail.com</a></li>
+          <li>💬 <strong>Discord :</strong> 
+            <a class="btn-discord" href="https://discord.gg/4DVYW8jkfF" target="_blank">Rejoindre</a>
+          </li>
+          <li>📸 <strong>Snapchat :</strong> <a href="#">@farmsimulfr89</a></li>
+          <li>📷 <strong>Instagram :</strong> <a href="#">@farmsimulfr</a></li>
+        </ul>
       </div>
+
+      <!-- NICE STUDIO -->
+      <div class="partner-card">
+        <img src="assets/images/logo-nicestudio.png" alt="Nice Studio FiveM">
+        <h3>🏢 NICE STUDIO FIVEM</h3>
+        <ul class="partner-info">
+          <li>🌐 <strong>Site :</strong> <a href="https://nicestudiofivem.fr" target="_blank">nicestudiofivem.fr</a></li>
+          <li>📧 <strong>Email :</strong> <a href="mailto:asso-contact@nicestudiofivem.fr">asso-contact@nicestudiofivem.fr</a></li>
+          <li>💬 <strong>Discord :</strong> 
+            <a class="btn-discord" href="https://discord.gg/4q5F2cherv" target="_blank">Rejoindre</a>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </main>
 
   <footer>
-    © 2025 FarmOtor’s Transport — Tous dro
+    © 2025 FarmOtor’s Transport — Tous droits réservés
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggle.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
+    });
+  </script>
+
+</body>
+</html>
