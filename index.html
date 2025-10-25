@@ -1,64 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partenaires – FarmOtor’s Transport</title>
-  <link rel="icon" type="image/png" href="assets/images/logo-farmotor.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FarmOtor’s — Accueil</title>
+  <meta name="description" content="FarmOtor’s — entreprise virtuelle spécialisée dans les solutions agricoles et mécaniques pour serveurs / simulations."/>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/images/favicon.png" />
 </head>
 <body>
-
-  <header>
-    <div class="logo-container">
-      <img src="assets/images/logo-farmotor.png" alt="Logo FarmOtor">
-      <h1>FarmOtor’s Transport</h1>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">FarmOtor’s</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="partners.html">Partenaires</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <div class="menu-toggle" id="menu-toggle">☰</div>
-
-    <nav id="nav-menu">
-      <a href="index.html">🏠 Accueil</a>
-      <a href="partenaires.html" class="active">🤝 Partenaires</a>
-      <a href="contact.html">📞 Contact</a>
-    </nav>
   </header>
 
-  <section class="banner">
-    <h2>Partenariat Officiel</h2>
-    <img src="assets/images/banniere-partenariat.png" alt="Partenariat Officiel FarmOtor x Nice Studio FiveM">
-  </section>
-
   <main>
-    <h2>Nos Partenaires Officiels</h2>
-    <p>
-      Découvrez nos partenaires qui soutiennent <strong>FarmOtor’s Transport</strong>  
-      et partagent notre passion du transport et de la simulation !
-    </p>
-
-    <div class="partners-grid">
-      <div class="partner-card">
-        <img src="assets/images/logo-nicestudio.png" alt="NiceStudioFiveM">
-        <h3>NICE STUDIO FIVEM</h3>
-        <p>Développement, hébergement et création d’expériences immersives sur FiveM.  
-           Un partenaire de confiance pour l’innovation virtuelle.</p>
-        <a href="https://www.nicestudiofivem.fr/" target="_blank">🌐 Visiter le site</a>
+    <section class="hero">
+      <div class="container">
+        <h1>FarmOtor’s</h1>
+        <p class="lead">Solutions virtuelles pour l’agriculture mécanique — innovation, fiabilité et immersion.</p>
+        <p><a class="btn" href="services.html">Nos services</a> <a class="btn ghost" href="contact.html">Contact</a></p>
       </div>
-    </div>
-  </main>
+    </section>
 
-  <footer>
-    © 2025 FarmOtor’s Transport — Tous droits réservés
-  </footer>
+    <section class="intro container">
+      <div class="card">
+        <h2>Qui sommes-nous ?</h2>
+        <p>FarmOtor’s est une entreprise virtuelle dédiée à fournir des outils, services et assets pour l’univers agricole et mécanique. Nous créons des expériences immersives, des supports techniques et des partenariats pour projets virtuels.</p>
+        <p><a href="about.html">En savoir plus →</a></p>
+      </div>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      menuToggle.textContent = navMenu.classList.contains('active') ? '✖' : '☰';
-    });
-  </script>
+      <div class="card">
+        <h2>Nos services</h2>
+        <ul>
+          <li>Conception et intégration d’assets</li>
+          <li>Support technique & scripts</li>
+          <li>Consulting pour serveurs / simulations</li>
+        </ul>
+        <p><a href="services.html">Découvrir nos services →</a></p>
+      </div>
 
-</body>
-</html>
+      <div class="card">
+        <h2>Partenaires</h2>
