@@ -1,41 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>À propos — FarmOtor’s</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FarmOtor's — À propos</title>
+  <meta name="description" content="À propos de FarmOtor's — mission, valeurs et équipe de l'entreprise virtuelle dédiée aux solutions agricoles et mécaniques.">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">FarmOtor’s</a>
-      <button id="nav-toggle-2" class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
-      <nav id="main-nav-2" class="main-nav">
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="about.html" aria-current="page">À propos</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="partners.html">Partenaires</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/images/logo.png" alt="FarmOtor's logo" class="logo">
+        FarmOtor's
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="about.html" class="active">À propos</a>
+        <a href="services.html">Services</a>
+        <a href="partners.html">Partenaires</a>
+        <a href="contact.html" class="cta">Contact</a>
       </nav>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
     </div>
   </header>
 
-  <main class="container">
-    <article class="content">
-      <h1>À propos de FarmOtor’s</h1>
-      <p>FarmOtor’s est née de la passion pour les environnements agricoles virtuels et la mécanique appliquée. Notre mission : fournir des assets, du support technique et des services de qualité pour rendre vos projets plus réalistes et plus faciles à gérer.</p>
+  <!-- Main content -->
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>À propos de FarmOtor's</h1>
+        <p class="lead">Entreprise virtuelle spécialisée dans les solutions de simulation, gestion et services pour le monde agricole et mécanique.</p>
+      </div>
+    </section>
 
-      <h2>Notre vision</h2>
-      <p>Créer des expériences fiables et immersives, et permettre aux communautés et serveurs de fonctionner sans obstacles techniques.</p>
+    <section class="container about-grid">
+      <article class="about-mission">
+        <h2>Notre mission</h2>
+        <p>
+          FarmOtor's a pour mission de fournir des outils et services virtuels permettant
+          d'améliorer la gestion, la maintenance et la formation dans le domaine agricole.
+          Nous concevons des simulations réalistes, des solutions de suivi et des
+          packs de services adaptés aux besoins des exploitations modernes.
+        </p>
+        <ul>
+          <li>Simulations et environnements virtuels</li>
+          <li>Gestion et logistique agricole</li>
+          <li>Formations et tutoriels techniques</li>
+        </ul>
+      </article>
 
+      <aside class="about-values">
+        <h2>Nos valeurs</h2>
+        <ul>
+          <li><strong>Innovation :</strong> utilisons la technologie pour améliorer les pratiques.</li>
+          <li><strong>Fiabilité :</strong> des solutions robustes et testées.</li>
+          <li><strong>Proximité :</strong> écoute active des besoins des utilisateurs.</li>
+          <li><strong>Durabilité :</strong> pensée pour de meilleures pratiques sur le long terme.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="container team">
       <h2>Notre équipe (virtuelle)</h2>
-      <p>Une petite équipe dédiée aux scripts, au design d’assets et à l’intégration.</p>
-    </article>
+      <p>FarmOtor's regroupe des spécialistes en simulation, agriculture, mécanique et développement logiciel.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="assets/images/team-1.jpg" alt="Membre équipe 1 (placeholder)">
+          <h3>Alex Dupont</h3>
+          <p>Responsable simulation & R&D</p>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team-2.jpg" alt="Membre équipe 2 (placeholder)">
+          <h3>Marie Lefèvre</h3>
+          <p>Chef de projet & partenariats</p>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team-3.jpg" alt="Membre équipe 3 (placeholder)">
+          <h3>Samira Ben</h3>
+          <p>Design & expérience utilisateur</p>
+        </div>
+      </div>
+      <p class="small">*Images et noms fictifs — remplace par la vraie équipe si besoin.*</p>
+    </section>
+
+    <section class="container timeline">
+      <h2>Notre parcours</h2>
+      <ol>
+        <li><strong>2024 —</strong> Fondation de FarmOtor's et premières simulations pilotes.</li>
+        <li><strong>2025 —</strong> Lancement des outils de gestion et premiers partenariats.</li>
+        <li><strong>2026 —</strong> Extension des services et amélioration des modules de formation.</li>
+      </ol>
+    </section>
+
+    <section class="container cta-section">
+      <h2>Envie d'en savoir plus ?</h2>
+      <p>Contacte-nous pour une démonstration ou pour discuter d'une collaboration.</p>
+      <a class="btn" href="contact.html">Nous contacter</a>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div><strong>
+    <div class="container">
+      <div class="footer-left">
+        <p>© 2025 FarmOtor's — Tous droits réservés.</p>
+      </div>
+      <div class="footer-right">
+        <a href="legal.html">Mentions légales</a> |
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
